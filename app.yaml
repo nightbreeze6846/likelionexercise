@@ -5,19 +5,24 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /(.*\.(bmp|gif|ico|jpeg|jpg))
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
   static_files: \1
-  upload: (.*\.(bmp|gif|ico|jpeg|jpg))
+  mime_type : (bmp|gif|ico|jpeg|jpg|png))
+  upload: (.*\.(bmp|gif|ico|jpeg|jpg|png))
 
-- url: /static/css
+- url: ./static/img
+  static_dir: static/img
+
+- url: ./static/css
   static_dir: static/css
 
-- url: /static/fonts
+- url: ./static/fonts
+  mime_type : text/fonts
   static_dir: static/fonts
 
-- url: /static/js
+- url: ./static/js
+  mime_type : text/js
   static_dir: static/js
-
 
 - url: /(.*\.(php|html))
   script: \1

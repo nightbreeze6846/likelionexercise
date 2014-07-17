@@ -4,7 +4,7 @@
 	
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport"	 content="width=device-width, initial-scale=1">
 
 	<!-- css setup -->
 	<link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -18,11 +18,94 @@
 	<!-- title -->
 	<title>Geek In The Loft</title>
 </head>
-<body >
+<body style="background-color:#f8f8f8;">
+	<!-- facebook api setting -->
+		<script>
+	  // This is called with the results from from FB.getLoginStatus().
+	  function statusChangeCallback(response) {
+	  	console.log('statusChangeCallback');
+	  	console.log(response);
+	    // The response object is returned with a status field that lets the
+	    // app know the current login status of the person.
+	    // Full docs on the response object can be found in the documentation
+	    // for FB.getLoginStatus().
+	    if (response.status === 'connected') {
+	      // Logged into your app and Facebook.
+	      testAPI();
+	  } else if (response.status === 'not_authorized') {
+	      // The person is logged into Facebook, but not your app.
+	      document.getElementById('status').innerHTML = 'Please log ' +
+	      'into this app.';
+	  } else {
+	      // The person is not logged into Facebook, so we're not sure if
+	      // they are logged into this app or not.
+	      document.getElementById('status').innerHTML = 'Please log ' +
+	      'into Facebook.';
+	  }
+	}
+
+	  // This function is called when someone finishes with the Login
+	  // Button.  See the onlogin handler attached to it in the sample
+	  // code below.
+	  function checkLoginState() {
+	  	FB.getLoginStatus(function(response) {
+	  		statusChangeCallback(response);
+	  	});
+	  }
+
+	  window.fbAsyncInit = function() {
+	  	FB.init({
+	  		appId      : '{your-app-id}',
+	    cookie     : true,  // enable cookies to allow the server to access 
+	                        // the session
+	    xfbml      : true,  // parse social plugins on this page
+	    version    : 'v2.0' // use version 2.0
+	});
+
+	  // Now that we've initialized the JavaScript SDK, we call 
+	  // FB.getLoginStatus().  This function gets the state of the
+	  // person visiting this page and can return one of three states to
+	  // the callback you provide.  They can be:
+	  //
+	  // 1. Logged into your app ('connected')
+	  // 2. Logged into Facebook, but not your app ('not_authorized')
+	  // 3. Not logged into Facebook and can't tell if they are logged into
+	  //    your app or not.
+	  //
+	  // These three cases are handled in the callback function.
+
+	  FB.getLoginStatus(function(response) {
+	  	statusChangeCallback(response);
+	  });
+
+	};
+
+	  // Load the SDK asynchronously
+	  (function(d, s, id) {
+	  	var js, fjs = d.getElementsByTagName(s)[0];
+	  	if (d.getElementById(id)) return;
+	  	js = d.createElement(s); js.id = id;
+	  	js.src = "//connect.facebook.net/en_US/sdk.js";
+	  	fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+
+	  // Here we run a very simple test of the Graph API after login is
+	  // successful.  See statusChangeCallback() for when this call is made.
+	  function testAPI() {
+	  	console.log('Welcome!  Fetching your information.... ');
+	  	FB.api('/me', function(response) {
+	  		console.log('Successful login for: ' + response.name);
+	  		document.getElementById('status').innerHTML =
+	  		'Thanks for logging in, ' + response.name + '!';
+	  	});
+	  }
+	</script>
+	<!-- facebook api setting end -->
+
 	<!-- Header start-->
 	<div id = "header">
 		<nav class="navbar navbar-fixed-top " role="navigation">
-			<div class	="container" style="background-color:white">
+			<div class="container" >
 				<!-- header title start-->
 				<div class="navbar-header">
 					<a class="navbar-brand" href="main.html"><span style="color:#428bca">geek</span> in the loft
@@ -33,7 +116,8 @@
 				<!-- menu left start-->
 				<div class="collapse navbar-collapse navbar-ex1-collapse navbar-left">
 					<ul class="nav navbar-nav">
-						<li><a href="#">시작하기</a></li>						
+						<li><a href="#">시작하기</a></li>
+
 					</ul>
 				</div>
 				<!-- menu left end-->
@@ -56,68 +140,109 @@
 	<!-- Body start -->
 	<div id="body">
 		<!-- Banner start -->
-		<div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item">
-                <div class="fill" style="background-image:url('./static/img/ban2.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>A Full-Width Image Slider Template</h1>
-                </div>
-            </div>
-            <div class="item active">
-                <div class="fill" style="background-image:url('./static/img/ban3.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 2</h1>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&amp;text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>
+		<div class="banner">
+			
+		</div>
 		
 		<!-- Banner end -->
 		<!-- content start-->
 		<div class="container content">
-			<!-- div right start -->
-			<div class="col-md-9">
-				<h3 style="line-height: 19.5px; margin-top: 10px; margin-right: 0px; margin-bottom: 10px; padding: 0px; bottom: 4px; font-size: 18px; font-weight: normal; color: rgb(51, 51, 51); font-family: Arial, sans-serif; margin-left: 0px !important;">
-					<strong>Game Changes When Direct-to-Fan Becomes Normal</strong></h3><blockquote style="line-height: 19.5px; margin-top: 10px; margin-bottom: 10px; color: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: small;"><p style="margin-top: 10px; margin-bottom: 10px; line-height: 1.5;"><span style="font-size: 8pt;"><strong>Benji Rogers</strong>&nbsp;| Founder and CEO of the crowd-funding company&nbsp;<a href="http://www.pledgemusic.com/" target="_blank" class="con_link" style="text-decoration: none; word-wrap: break-word; color: rgb(102, 102, 102);"><strong>PledgeMusic</strong></a>.</span></p></blockquote><p style="line-height: 19.5px; margin-top: 10px; margin-bottom: 10px; color: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: small;">I think that platforms will dominate. Much like iTunes and Amazon, Spotify, and Pandora, direct-to-fan destinations will and should become the norm.</p>
-				<p style="line-height: 19.5px; margin-top: 10px; margin-bottom: 10px; color: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: small;">The Nielsen data that we presented at SXSW points to the fact that fans and even a larger segment of consumers across the entire spectrum want more experiences and participation in the process. It also identified that they like and want to have these moments with not just one but with multiple artists. When we built PledgeMusic, it was with the thinking that fans would want this particular type of direct-to-fan experience with just their one artist. We got this so very wrong. Immediately we saw that fans wanted more. They emailed us continuously to ask why there weren't more ways to discover new music on the platform. They wanted to have this experience with all of their favorites and it seemed that we were failing them by not giving them this.</p>
-				<p style="line-height: 19.5px; margin-top: 10px; margin-bottom: 10px; color: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: small;">To look at it another way these fans could browse any site or streaming service they wanted and find all the music by the artists they loved. They could go to the artists website and buy things from their web stores, join their fan clubs, and follow them on Twitter and Facebook. But they kept coming back to us because they wanted what our artists were offering: access and participation. We quickly realized that this experience wasn't something that could live in an artists website, because it was essentially a social experience albeit a private social experience, designed and created for those who wanted it. We also saw that once the fan had this moment with their artist then the straight up consumer experience simply paled in comparison. It was once put to me that we had ruined the process of buying music for fans because they wanted and were willing to pay for more but were offered only a CD, a download, or a stream.</p>
-			</div>
-			<!-- div right end-->
-			<!-- div left start-->
-			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">Printable</a>
-					<a href="#" class="list-group-item">Cupcake Wrappers</a>
-					<a href="#" class="list-group-item">Authentic Dragon Bones</a>
-				</div>
-			</div>
-			<!-- div left end-->
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
 
+			<div id="status">
+			</div>
+			<!-- div left start -->
+			<div class="col-md-9">
+				<!-- left div title -->
+				<p >
+					새로운 아티스트를 만나보세요!
+				</p>
+				
+				<div class="container leftdiv" >
+					<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/v/t1.0-1/c0.0.160.160/p160x160/10501630_1467816556796520_8010340063992232773_n.jpg?oh=ad085be6aae676fc96f9c68c695d630f&oe=544173C3&__gda__=1413011193_01b0e04096e7576f3483f76ddcc39fbf" class="profile-pic">
+				
+					<div class="profile-exp">
+						<p>
+							<strong>박은태</strong>	
+						</p>
+						<p>
+
+							디자인이 맨날 좋았다가 별로였다가 바뀐다. 어차피 또 갈아엎을 꺼니까 괜찮아<br>
+							2014년 새로운 모차르트와 함께 돌아왔다!<br>
+							피맛골연가, 엘리자벳, 프랑켄슈타인 등 대작의 주인공을 맡았던 그를 모차르트에서도 만나보자.
+						</p>
+					</div>
+				</div>
+				<div class="container leftdiv" >
+					<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/v/t1.0-1/c0.0.160.160/p160x160/10501630_1467816556796520_8010340063992232773_n.jpg?oh=ad085be6aae676fc96f9c68c695d630f&oe=544173C3&__gda__=1413011193_01b0e04096e7576f3483f76ddcc39fbf" class="profile-pic">
+				
+					<div class="profile-exp">
+						<p>
+							<strong>박은태</strong>	
+						</p>
+						<p>
+
+							디자인이 맨날 좋았다가 별로였다가 바뀐다. 어차피 또 갈아엎을 꺼니까 괜찮아<br>
+							2014년 새로운 모차르트와 함께 돌아왔다!<br>
+							피맛골연가, 엘리자벳, 프랑켄슈타인 등 대작의 주인공을 맡았던 그를 모차르트에서도 만나보자.
+						</p>
+					</div>
+				</div>
+				<div class="container leftdiv" >
+					<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/v/t1.0-1/c0.0.160.160/p160x160/10501630_1467816556796520_8010340063992232773_n.jpg?oh=ad085be6aae676fc96f9c68c695d630f&oe=544173C3&__gda__=1413011193_01b0e04096e7576f3483f76ddcc39fbf" class="profile-pic">
+				
+					<div class="profile-exp">
+						<p>
+							<strong>박은태</strong>	
+						</p>
+						<p>
+
+							디자인이 맨날 좋았다가 별로였다가 바뀐다. 어차피 또 갈아엎을 꺼니까 괜찮아<br>
+							2014년 새로운 모차르트와 함께 돌아왔다!<br>
+							피맛골연가, 엘리자벳, 프랑켄슈타인 등 대작의 주인공을 맡았던 그를 모차르트에서도 만나보자.
+						</p>
+					</div>
+				</div>
+				<div class="container leftdiv" >
+					<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/v/t1.0-1/c0.0.160.160/p160x160/10501630_1467816556796520_8010340063992232773_n.jpg?oh=ad085be6aae676fc96f9c68c695d630f&oe=544173C3&__gda__=1413011193_01b0e04096e7576f3483f76ddcc39fbf" class="profile-pic">
+				
+					<div class="profile-exp">
+						<p>
+							<strong>박은태</strong>	
+						</p>
+						<p>
+
+							디자인이 맨날 좋았다가 별로였다가 바뀐다. 어차피 또 갈아엎을 꺼니까 괜찮아<br>
+							2014년 새로운 모차르트와 함께 돌아왔다!<br>
+							피맛골연가, 엘리자벳, 프랑켄슈타인 등 대작의 주인공을 맡았던 그를 모차르트에서도 만나보자.
+						</p>
+					</div>
+				</div>
+				
+			</div>	
+			<!-- div left end-->
+			<div>
+				<!-- div right start-->
+				<div class="col-md-3" style="float : right">
+					<!-- right div title -->
+					<p >
+						아티스트 분류
+					</p>
+				
+					<div class="list-group">
+						<a href="#" class="list-group-item active">음악</a>
+						<a href="#" class="list-group-item">연극</a>
+						<a href="#" class="list-group-item">공예</a>
+						<a href="#" class="list-group-item">미술</a>
+						<a href="#" class="list-group-item">작가</a>
+
+					</div>
+				</div>
+				<!-- div right end-->
+			</div>
 		</div>
-		<!-- content start-->
+		<!-- content end-->
 	</div>
 	<!-- Body end -->
 	<!-- Footer start -->

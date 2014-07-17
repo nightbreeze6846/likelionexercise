@@ -39,49 +39,59 @@ a:hover {
 	padding-bottom: 3px;
 	background-color: white;
 	vertical-align: middle;
-	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: 0 7px 0px rgba(0,0,0,.1);
 	border-color: lightgray;
 	border-width: 0 0 1px;
 }
 .menubar{
 	padding-top: 5px;
 }
-.navbar .container{
+.navbar.container{
 	width:1000px;
 }
-
+.container{
+	width: auto;
+}
+.container.leftdiv{
+	padding: 0px;
+}
 #body{
 	padding-top: 57px;
+	background-color: #f8f8f8;
 }
 .content{
 	width: 1000px;
-	background-color: white;
 	padding-top:15px;
 }
 .banner{
-	width:auto;
-	text-align: center;
-	background-color: #428bca;
+	height : 300px;
+	background-color: #41beb8;
 	border-color: gray;
-	box-shadow: 0 1px 2px rgba(0,0,0,.4);
 }
 .list-group{
 	box-shadow: 0 1px 2px rgba(0,0,0,.075);
+
+}
+.leftdiv{
+	background-color:white; 
+	border:1px #f0f0f0 solid;
+	box-shadow: 0 1px 2px rgba(0,0,0,.075);
+	
+	margin-bottom: 10px;
 }
 
-.carousel {
-  height: 250px;
+.profile-pic{
+	
+	width:140px;
+	height:140px;
+	float : left;
+	margin-right: 15px;
 }
-
-.item,
-.active,
-.carousel-inner {
-  height: 100%;
+.profile-exp{
+	width : auto;
+	padding-top:10px;
+	padding-right: 10px;
 }
-
-.fill {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
+.profile-exp>p{
+	margin-bottom: 0px;	
 }
