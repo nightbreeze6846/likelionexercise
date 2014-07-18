@@ -10,11 +10,9 @@ a:visited {
 a:hover {
 	color:black;
 }
-.carousel {
-  height: 30%;
-}
-#buttongroup >li{
-
+#navigation {
+	padding-left: 100px;
+	padding-right:100px;
 }
 .nav>li>a{
 	color:black;

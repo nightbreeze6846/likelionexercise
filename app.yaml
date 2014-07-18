@@ -7,22 +7,20 @@ threadsafe: true
 handlers:
 - url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
   static_files: \1
-  mime_type : (bmp|gif|ico|jpeg|jpg|png))
+  mime_type: (img/jpg|img/png)
   upload: (.*\.(bmp|gif|ico|jpeg|jpg|png))
 
-- url: ./static/img
-  static_dir: static/img
+- url: /css
+  static_dir: css
 
-- url: ./static/css
-  static_dir: static/css
+- url: /js
+  static_dir: js
 
-- url: ./static/fonts
-  mime_type : text/fonts
-  static_dir: static/fonts
+- url: /fonts
+  static_dir: fonts
 
-- url: ./static/js
-  mime_type : text/js
-  static_dir: static/js
+- url: /img
+  static_dir: img
 
 - url: /(.*\.(php|html))
   script: \1
