@@ -70,25 +70,26 @@ a:hover {
 	box-shadow: 0 1px 2px rgba(0,0,0,.075);
 
 }
-.leftdiv{
-	background-color:white; 
-	border:1px #f0f0f0 solid;
-	box-shadow: 0 1px 2px rgba(0,0,0,.075);
-	
+.content-block{
+	background-color: white;
+	border : 1px #f0f0f0 solid;
+
+	box-shadow: 0 5px 0px rgba(0,0,0,.075);
 	margin-bottom: 10px;
+	margin-right: 5px;
+	width: 220px;
+	text-align: center;
+	display: inline-block;
 }
 
 .profile-pic{
 	
-	width:140px;
-	height:140px;
-	float : left;
-	margin-right: 15px;
+	width:218px;
+	height:220px;
 }
 .profile-exp{
 	width : auto;
-	padding-top:10px;
-	padding-right: 10px;
+	padding-top:3px;
 }
 .profile-exp>p{
 	margin-bottom: 0px;	
