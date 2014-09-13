@@ -1,29 +1,28 @@
 application: geekintheloftcloud
-version: 1
-runtime: php
+version: 0-0-1-proto
+runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
 
+### builtins: import appengine native builtin services ###
+builtins:
+- appstats: on
+- admin_redirect: on
+- deferred: on
+- remote_api: on
+
+### handlers: set script or static files by url pattern ###
 handlers:
-- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
-  static_files: \1
-  mime_type: (img/jpg|img/png)
-  upload: (.*\.(bmp|gif|ico|jpeg|jpg|png))
+- url: /static
+  static_dir: apps/static
 
-- url: /css
-  static_dir: css
+- url: .*
+  script: apps.app
 
-- url: /js
-  static_dir: js
+### libraries: import third-party libraries in python 2.7 ###
+libraries:
+- name: jinja2
+  version: "2.6"
 
-- url: /fonts
-  static_dir: fonts
-
-- url: /img
-  static_dir: img
-
-- url: /(.*\.(php|html))
-  script: \1
-
-- url: /.*
-  script: main.html
+- name: markupsafe
+  version: "0.15"

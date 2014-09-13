@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Likelion Flaskr</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block favicon %}
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+    {% endblock %}
+</head>
+<body>
+{% block layout %}{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <script src="http://js.pusher.com/2.2/pusher.min.js"></script>
+    <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    var pusher = new Pusher('69ea7e9cd25b0aa6ff1c');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('event_msg', function(data) {
+      $('#chatpanel').append("<div>" + data.name + " : " + data.msg + "</div>");
+    });
+    channel.bind('login_msg',function(data){
+       $('#chatpanel').append("<div>" + data.name + "님께서 입장하셨습니다. </div>"); 
+    })
+    channel.bind('logout_msg',function(data){
+       $('#chatpanel').append("<div>" + data.name + "님께서 나가셨어요. 잘가요~:) </div>"); 
+    })
+  
+
+    $('#send').click(function(){
+        document.getElementById('send').value == "";
+        $.get("/send", {
+            msg_data : $("#chat_msg").val()
+        }, function(data){});
+        
+    });
+  </script>
+{% endblock %}
+</body>
+</html>
+
