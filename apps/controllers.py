@@ -39,6 +39,17 @@ def user_join():
     else :
         return render_template('/user/join.html', form=form)
 
+
+@app.route('/user/make_profile/', methods=['GET','POST'])
+def update_profile():
+    if request.method == "GET":
+        return render_template('/user/update_profile.html')
+ 
+@app.route('/portfolio3/', methods=['GET','POST'])
+def portfolio3():
+    if request.method == "GET":
+        return render_template('portfolio3.html')    
+
 #
 # @error Handlers
 #
