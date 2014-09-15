@@ -2,12 +2,12 @@
 
 {% block contents %}
 <div class="container"  style="width:400px; text-align:center">
-	<p>{{message}}</p>
-	<form action="{{url_for('login')}}" method="post">
+
+	<form action="" method="post">
 	
 		<div class="input-group">
 			<span class="input-group-addon" >Email</span>
-			<input type="text" class="form-control" id="email_input" name="email" placeholder="Useremail">
+			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
 		</div>
 		<br>
 		<div class="input-group">
@@ -17,7 +17,7 @@
 		<br>
 		<input type="submit" id="loginbtn" class="form-control" value="로그인">
 	</form>
-	<P><a href="{{url_for('user_join')}}">아직도 회원이 아니신가요?</a></P>
+	<P><a href="{{ url_for('user_join') }}">아직도 회원이 아니신가요?</a></P>
 </div>
 {% endblock %}
 
