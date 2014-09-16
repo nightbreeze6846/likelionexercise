@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-<div class="container"  style="width:400px; text-align:center">
+<div class="container"  style="width:400px; text-align:center; ">
 
-	<form action="" method="post">
+	<form action=" {{ url_for('login') }}" method="post">
 	
 		<div class="input-group">
 			<span class="input-group-addon" >Email</span>
