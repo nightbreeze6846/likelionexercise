@@ -33,7 +33,7 @@
     {% if g.user_name != None %}
     <ul class="nav navbar-nav navbar-right">
       <li>{{ g.user_name }}</a></li>
-      <li><a href="{{ url_for('user_join') }}">Logout</li>
+      <li><a href="{{ url_for('logout') }}">Logout</li>
     </ul>
     {% else %}
     <ul class="nav navbar-nav navbar-right">
