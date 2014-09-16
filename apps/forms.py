@@ -30,3 +30,15 @@ class JoinForm(Form):
         [validators.data_required(u'이름을 입력하시기 바랍니다.')],
         description={'placeholder': u'이름을 입력하세요.'}
     )
+
+class LoginForm(Form):
+    email = EmailField(
+        u'이메일',
+        [validators.data_required(u'이메일을 입력해주세요.')],
+        description={'placeholder': u'이메일을 입력하세요.'}
+    )
+    password = PasswordField(
+        u'패스워드',
+        [validators.data_required(u'패스워드를 입력해주세요.')],
+        description={'placeholder': u'패스워드를 입력하세요.'}
+    )

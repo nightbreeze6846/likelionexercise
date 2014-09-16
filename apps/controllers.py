@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, \
      check_password_hash
 from sqlalchemy import desc
 from apps import app, db
-from apps.forms import JoinForm
+from apps.forms import JoinForm, LoginForm
 from apps.models import (
      User
 #     Video,
@@ -19,7 +19,45 @@ from apps.models import (
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if 'user_id' in session :
+        return render_template("portfolio3.html", username = session['user_id'])
     return render_template("login.html")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if request.method == 'POST' :
+        if form.validate_on_submit():
+            email = form.email.data
+            pwd = form.password.data
+
+            user = User.query.get(email)
+            if user is None:
+                flash(u'존재하지 않는 아이디, 혹은 아이디가 잘못되었습니다.', 'danger')
+            elif not check_password_hash(user.password, pwd):
+                flash(u'비밀번호가 일치하지 않습니다.', 'danger')
+            else:
+                session.permanert = True
+                session['user_id'] = user.email
+                session['user_name'] = user.name
+                flash(u'로그인 하셨습니다.', 'success')
+                return redirect(url_for('index'))
+
+    return render_template('portfolio3.html', form = form, active_tab='login')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+@app.before_request
+def befor_request():
+    g.user_name = None
+
+    if 'user_id' in session:
+        g.user_name = session['user_name']
+        g.user_email = session['user_email']
 
 @app.route('/user/join/', methods=['GET','POST'])
 def user_join():
