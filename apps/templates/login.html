@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-<div class="container"  style="width:400px; text-align:center">
+<div class="container">
 
-	<form action="" method="post">
-	
+	<form action=" {{ url_for('login') }}" method="post">
+
+
+	<div class="col-xs-6">
 		<div class="input-group">
 			<span class="input-group-addon" >Email</span>
 			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
@@ -18,6 +20,14 @@
 		<input type="submit" id="loginbtn" class="form-control" value="로그인">
 	</form>
 	<P><a href="{{ url_for('user_join') }}">아직도 회원이 아니신가요?</a></P>
+	<P><a href="{{ url_for('update_profile') }}">update portfolio</a></P>
+	<P><a href="{{ url_for('portfolio3') }}">portfolio3</a></P>
+	<P><a href="{{ url_for('portfolio4') }}">portfolio4</a></P>
+
+	</div>
+
+
+
 </div>
 {% endblock %}
 

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div id="page-content-wrapper">
+  <div class="container">
+    <div class="row">
+          <div class="page">
+
+            <div>
+                포트폴리오를 완성하세요
+            <div>
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                40%
+              </div>
+            </div>
+
+
+              <h>공연history</h> 
+              
+             </div>
+
+          <div class="row">
+
+              <div class="col-md-3 portfolio-item">
+                  <label class="checkbox-inline">
+                    <input type = "checkbox">
+                      <select class="form-control">
+                        <option value="">공연</option>
+                        <option value="genre1">1</option>
+                        <option value="genre2">2</option>
+                        <option value="genre3">3</option>
+                        <option value="genre4">4</option>
+                      </select>
+                    </input>
+                  </label>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">submit</button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+
+                <br>
+                <br>
+
+
+              <div class="col-md-3 portfolio-item">
+                  <label class="checkbox-inline">
+                    <input type = "checkbox">
+                      <select class="form-control">
+                        <option value="">공연</option>
+                        <option value="genre1">1</option>
+                        <option value="genre2">2</option>
+                        <option value="genre3">3</option>
+                        <option value="genre4">4</option>
+                      </select>
+                    </input>
+                  </label>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">submit</button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+
+              <br>
+              <br>
+
+
+
+              <div class="col-md-8 portfolio-item">
+                  <label class="checkbox-inline">
+                    <input type = "checkbox">
+                      <select class="form-control">
+                        <option value="">출신학교</option>
+                        <option value="genre1">록</option>
+                        <option value="genre2">재즈</option>
+                        <option value="genre3">힙합</option>
+                        <option value="genre4">클래식</option>
+                      </select>
+                    </input>
+                  </label>
+                </div>
+
+
+               
+
+                 <br>
+              <br>
+
+          
+          <!-- music & video -->
+
+         
+
+
+          </div> 
+
+          <ul class="pager">
+         
+          <P><a href="{{ url_for('portfolio4') }}">Prev</a></P>
+          <P><a href="{{ url_for('portfolio6') }}">Next</a></P>
+          </ul>
+
+    </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+{% endblock %}
