@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div class="container"  style="width:400px; text-align:center; ">
+	<h3>정말 탈퇴하시겠습니까?</h3>
+	<p>포트폴리오 등 업로드 된 모든 정보들이 사라집니다.</p>
+
+	<form action=" {{ url_for('changeinfo') }}" method="post">
+	
+	<P><a href="{{ url_for('memberout') }}">회원 탈퇴</a></P>
+</div>
+{% endblock %}
