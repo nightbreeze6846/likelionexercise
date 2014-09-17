@@ -109,6 +109,33 @@ def portfolio3():
 	if request.method == "GET":
 		return render_template('portfolio3.html')    
 
+@app.route('/portfolio4/', methods=['GET','POST'])
+def portfolio4():
+    if request.method == "GET":
+        return render_template('portfolio4.html')    
+
+@app.route('/portfolio5/', methods=['GET','POST'])
+def portfolio5():
+    if request.method == "GET":
+        return render_template('portfolio5.html')    
+
+@app.route('/portfolio6/', methods=['GET','POST'])
+def portfolio6():
+    if request.method == "GET":
+        return render_template('portfolio6.html')    
+
+@app.route('/portfolio7/', methods=['GET','POST'])
+def portfolio7():
+    if request.method == "GET":
+        return render_template('portfolio7.html')    
+
+@app.route('/portfolio8/', methods=['GET','POST'])
+def portfolio8():
+    if request.method == "GET":
+        return render_template('portfolio8.html')    
+
+
+
 #
 # @error Handlers
 #

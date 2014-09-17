@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-<div class="container"  style="width:400px; text-align:center; ">
+<div class="container">
 
 	<form action=" {{ url_for('login') }}" method="post">
-	
+
+
+	<div class="col-xs-6">
 		<div class="input-group">
 			<span class="input-group-addon" >Email</span>
 			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
@@ -15,9 +17,10 @@
 			<input type="password" class="form-control" name="pw" placeholder="Password">
 		</div>
 		<br>
-		<input type="submit" id="loginbtn" class="form-control" value="로그인">
+		<button type="submit">로그인</button>
 	</form>
 	<P><a href="{{ url_for('user_join') }}">아직도 회원이 아니신가요?</a></P>
+
 </div>
 {% endblock %}
 
