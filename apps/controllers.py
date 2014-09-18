@@ -74,8 +74,8 @@ def memberout():
 		db.session.delete(mem)
 		db.session.commit()
 		return redirect(url_for('index'))
-
-	return render_template("memberout.html")
+	else:
+		return render_template("memberout.html")
 
 
 @app.route('/user/join/', methods=['GET','POST'])
