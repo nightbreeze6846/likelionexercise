@@ -68,18 +68,18 @@ def changeinfo():
 
 @app.route('/memberout', methods=['GET', 'POST'])
 def memberout():
-	mem = User.query.get(session['user_email'])
-
-
+	
 	if request.method == "POST":
+		mem = User.query.get(session['user_email'])
 		pwconfirm = request.form
-		if pwconfirm['pw'] == mem.password:
+		if check_password_hash(mem.password, pwconfirm['pw']):
 			
 			db.session.delete(mem)
 			db.session.commit()
-		return redirect(url_for('index'))
-	else:
-		return render_template("memberout.html")
+			
+			return redirect(url_for('logout'))
+
+	return render_template("memberout.html")
 
 
 @app.route('/user/join/', methods=['GET','POST'])
