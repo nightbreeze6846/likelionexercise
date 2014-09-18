@@ -7,6 +7,14 @@
 /* Toggle Styles */
 
 
+
+#header1{
+
+    font-family: Garamond;
+    font-size:30px;
+}
+
+
 #page{
     position: fixed;
     width: 0;
