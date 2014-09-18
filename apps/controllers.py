@@ -72,9 +72,13 @@ def changeinfo():
 def memberout():
 	mem = User.query.get(session['user_email'])
 
+
 	if request.method == "POST":
-		db.session.delete(mem)
-		db.session.commit()
+		pwconfirm = request.form
+		if pwconfirm == mem.password:
+			
+			db.session.delete(mem)
+			db.session.commit()
 		return redirect(url_for('index'))
 
 	return render_template("memberout.html")
