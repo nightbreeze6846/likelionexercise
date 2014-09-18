@@ -26,8 +26,6 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
 	
-	
-	
 	email = request.form['email']
 	pwd = request.form['pw']    
 	user = User.query.get(email)
@@ -97,6 +95,8 @@ def user_join():
 			return redirect(url_for('index'))
 	else :
 		return render_template('/user/join.html', form=form)
+
+@app.route('')
 
 
 @app.route('/user/make_profile/', methods=['GET','POST'])
