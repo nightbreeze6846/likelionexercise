@@ -19,8 +19,8 @@ from apps.models import (
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	if 'user_id' in session :
-		return render_template("portfolio3.html", username = session['user_id'])
+	if 'user_email' in session :
+		return render_template("portfolio3.html", username = session['user_email'])
 	return render_template("login.html")
 
 @app.route('/login', methods=['POST'])
@@ -38,7 +38,7 @@ def login():
 		flash(u'비밀번호가 일치하지 않습니다.', 'danger')
 	else:
 		session.permanent = True
-		session['user_id'] = user.email
+		session['user_email'] = user.email
 		session['user_name'] = user.name
 		flash(u'로그인 하셨습니다.', 'success')
 		return redirect(url_for('index'))
@@ -50,31 +50,31 @@ def logout():
 	session.clear()
 	return redirect(url_for('index'))
 
-@app.route('/changeinfo')
+@app.route('/changeinfo', methods=['GET', 'POST'])
 def changeinfo():
-	# info = User.query.get()
+	info = User.query.get(session['user_email'])
 
-	# if request.method == 'POST':
-	# 	newinfo = request.form
-	# 	info.name = newinfo['name']
-	# 	if newinfo['pw'] == newinfo['pwcf']:
-	# 		info.password = newinfo['pw']
+	if request.method == 'POST':
+		newinfo = request.form
+		info.name = newinfo['name']
+		if newinfo['pw'] == newinfo['pwcf']:
+			info.password = newinfo['pw']
 
-	# 		db.session.commit
-	# 		return redirect(url_for('index'))
+			db.session.commit()
+			return redirect(url_for('index'))
 
-	# 	else:
-	# 		return render_template("update_profile.html")
+		else:
+			return render_template("update_profile.html")
 
 	return render_template("changeinfo.html")
 
-@app.route('/memberout')
+@app.route('/memberout', methods=['GET', 'POST'])
 def memberout():
-	mem = User.query.get()
+	mem = User.query.get(session['user_email'])
 
-	if request.methods == "POST":
+	if request.method == "POST":
 		db.session.delete(mem)
-		db.session.commit
+		db.session.commit()
 		return redirect(url_for('index'))
 
 	return render_template("memberout.html")
