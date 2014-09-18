@@ -96,7 +96,6 @@ def user_join():
 	else :
 		return render_template('/user/join.html', form=form)
 
-@app.route('')
 
 
 @app.route('/user/make_profile/', methods=['GET','POST'])
