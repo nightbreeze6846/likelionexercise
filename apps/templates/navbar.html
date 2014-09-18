@@ -9,14 +9,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">MUSICDOC</a>
+    <a class="navbar-brand">MUSICDOC</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
+  {% if session['user_name'] %}
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Portfolio</a></li>
+      <li class="active"><a href="{{url_for('index')}}">Home</a></li>
+      <li><a href="{{url_for('portfolio3')}}">Portfolio</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My MUSIC <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -30,14 +31,14 @@
         </ul>
       </li>
     </ul>
-    {% if session['user_name'] %}
       <ul class="nav navbar-nav navbar-right">
-        <li>{{ session['user_name'] }}</a></li>
+        <li><a>{{ session['user_name'] }}</a></li>
+        <li><a href="{{ url_for('changeinfo') }}">회원정보 수정</a></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
       </ul>
     {% else %}
       <ul class="nav navbar-nav navbar-right">
-      <li>로그인을 해주세요</li>
+      <li><a>로그인을 해 주세요</a></li>
       </ul>
     {% endif %}
   </div><!-- /.navbar-collapse -->
