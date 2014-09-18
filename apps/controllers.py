@@ -73,7 +73,7 @@ def memberout():
 
 	if request.method == "POST":
 		pwconfirm = request.form
-		if pwconfirm == mem.password:
+		if pwconfirm['pw'] == mem.password:
 			
 			db.session.delete(mem)
 			db.session.commit()
