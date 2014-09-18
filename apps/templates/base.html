@@ -6,6 +6,8 @@
     <title>music doc</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" />
 
@@ -24,7 +26,23 @@
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     <script src="http://js.pusher.com/2.2/pusher.min.js"></script>
-    
+    <script type="text/javascript">
+    // // Enable pusher logging - don't include this in production
+    // var pusher = new Pusher('69ea7e9cd25b0aa6ff1c');
+    // var channel = pusher.subscribe('test_channel');
+    // channel.bind('event_msg', function(data) {
+    //   // $('#chatpanel').append("<div>" + data.name + " : " + data.msg + "</div>");
+    // });
+
+    //  $('#save_profile').click(function(){
+    //     $.get("/save_update", {
+    //         name_data : $("#inputname").val(),
+    //         age_data : $("#inputage").val(),
+    //         profile_data : $("#inputprofile").val()
+    //     }, function(data){});
+        
+    // });
+    // </script>
 
 {% endblock %}
 </body>

@@ -12,7 +12,7 @@ from apps.models import (
 #     Music,
 #     Portfolio
 )
-
+import pusher
 
 
 # @index 
@@ -20,7 +20,8 @@ from apps.models import (
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if 'user_email' in session :
-		return render_template("portfolio3.html", username = session['user_email'])
+		user = User.query.get(session['user_email'])
+		return render_template("mypage.html",user=user)
 	return render_template("login.html")
 
 @app.route('/login', methods=['POST'])
@@ -100,17 +101,25 @@ def user_join():
 	else :
 		return render_template('/user/join.html', form=form)
 
-
-
-@app.route('/user/make_profile/', methods=['GET','POST'])
-def update_profile():
-	if request.method == "GET":
-		return render_template('/user/update_profile.html')
  
-@app.route('/portfolio3/', methods=['GET','POST'])
-def portfolio3():
-	if request.method == "GET":
-		return render_template('portfolio3.html')    
+@app.route('/mypage/', methods=['GET'])
+def mypage():
+	user = User.query.get(session['user_email'])
+	return render_template('mypage.html', user=user)    
+
+@app.route('/save_profile', methods=['POST'])
+def save_profile():
+	
+	if request.method == 'POST':
+		user = User.query.get(session['user_email'])
+
+		profile_form=request.form
+		user.name = profile_form['inputname']
+		user.age = profile_form['inputage']
+		user.profile = profile_form['inputprofile']
+		db.session.commit()
+	return redirect(url_for('mypage'))
+
 
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():
