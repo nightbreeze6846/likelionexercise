@@ -9,9 +9,10 @@ class User(db.Model):
     email = db.Column(db.String(255), primary_key = True)
     password = db.Column(db.String(255))
     name = db.Column(db.String(255))
+    age = db.Column(db.Integer)
     page_domain = db.Column(db.String(255))
     subscribe = db.Column(db.Integer)
-
+    profile = db.Column(db.String(1024))
     join_date = db.Column(db.DateTime(), default = db.func.now())
 
 
