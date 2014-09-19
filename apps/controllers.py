@@ -19,8 +19,9 @@ import pusher
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	user = User.query.get(session['user_email'])
 	if 'user_email' in session :
-		user = User.query.get(session['user_email'])
+		
 		return render_template("mypage.html",user=user)
 	return render_template("login.html")
 
@@ -38,13 +39,13 @@ def user_join():
 			db.session.add(user)
 			db.session.commit()
 
-			flogin = User.query.get(email)
-
 			session.permanent = True
-			session['user_email'] = flogin.email
-			session['user_name'] = flogin.name
-			
+			session['user_email'] = user.email
+			session['user_name'] = user.name
+
 			return redirect(url_for('index'))
+		else:
+			return render_template('/user/joinagain.html')
 	else :
 		return render_template('/user/join.html', form=form)
 
@@ -56,9 +57,11 @@ def login():
 	user = User.query.get(email)
 
 	if user is None:
-		flash(u'존재하지 않는 아이디, 혹은 아이디가 잘못되었습니다.', 'danger')
+		return render_template("noemail.html")
+		# flash(u'존재하지 않는 아이디, 혹은 아이디가 잘못되었습니다.', 'danger')
 	elif not check_password_hash(user.password, pwd):
-		flash(u'비밀번호가 일치하지 않습니다.', 'danger')
+		return render_template("loginagain.html")
+		# flash(u'비밀번호가 일치하지 않습니다.', 'danger')
 	else:
 		session.permanent = True
 		session['user_email'] = user.email
@@ -75,23 +78,26 @@ def logout():
 
 @app.route('/changeinfo', methods=['GET', 'POST'])
 def changeinfo():
+	user = User.query.get(session['user_email'])
 	if request.method == 'POST':
-		info = User.query.get(session['user_email'])
-		newinfo = request.form
 		
-		if check_password_hash(info.password, newinfo['pw']):			
+		newname = request.form['name']
+		nowpw = request.form['pw']
+		newpw = request.form['newpw']
+		pwcf = request.form['pwcf']
+		
+		if check_password_hash(user.password, nowpw) and newpw == pwcf:
 
-			if newinfo['newpw'] == newinfo['pwcf']:
-				info.name = newinfo['name']
-				
-				info.password = newinfo['newpw']
-				db.session.commit()
-				return redirect(url_for('index'))
+			user.name = newname
+			user.password = newpw
 
-			else:
-				return render_template("portfolio4.html")
+			db.session.commit()
+			return redirect(url_for('mypage'))
 
-	return render_template("changeinfo.html")
+		else:
+			return render_template("portfolio4.html")
+
+	return render_template("changeinfo.html", user=user)
 
 @app.route('/memberout', methods=['GET', 'POST'])
 def memberout():
@@ -99,18 +105,11 @@ def memberout():
 	if request.method == "POST":
 		mem = User.query.get(session['user_email'])
 		pwconfirm = request.form
-<<<<<<< HEAD
-		if check_password_hash(men.password, pwconfirm['pw']):
 
-			db.session.delete(mem)
-			db.session.commit()
-=======
 		if check_password_hash(mem.password, pwconfirm['pw']):
 			
 			db.session.delete(mem)
 			db.session.commit()
-			
->>>>>>> 8a0021305bb79b2c3975391c6acc02aaed87acf6
 			return redirect(url_for('logout'))
 
 	return render_template("memberout.html")

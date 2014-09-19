@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div class="container">
+	<p>비밀번호가 틀렸습니다. 다시 로그인해주세요.</p>
+
+	<form action=" {{ url_for('login') }}" method="post">
+
+
+	<div class="col-xs-6">
+		<div class="input-group">
+			<span class="input-group-addon" >Email</span>
+			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">Password</span>
+			<input type="password" class="form-control" name="pw" placeholder="Password">
+		</div>
+		<br>
+		<button type="submit">로그인</button>
+	</form>
+	<P><a href="{{ url_for('user_join') }}">아직도 회원이 아니신가요?</a></P>
+
+</div>
+{% endblock %}
