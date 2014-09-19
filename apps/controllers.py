@@ -23,11 +23,35 @@ def index():
 		return render_template("portfolio3.html", username = session['user_email'])
 	return render_template("login.html")
 
+@app.route('/user/join/', methods=['GET','POST'])
+def user_join():
+	form = JoinForm()
+
+	if request.method == "POST":
+		if form.validate_on_submit():
+			user = User(
+				email = form.email.data,
+				password = generate_password_hash(form.password.data),
+				name = form.name.data
+			)
+			db.session.add(user)
+			db.session.commit()
+
+			flogin = User.query.get(email)
+
+			session.permanent = True
+			session['user_email'] = flogin.email
+			session['user_name'] = flogin.name
+			
+			return redirect(url_for('index'))
+	else :
+		return render_template('/user/join.html', form=form)
+
 @app.route('/login', methods=['POST'])
 def login():
 	
 	email = request.form['email']
-	pwd = request.form['pw']    
+	pwd = request.form['pw']
 	user = User.query.get(email)
 
 	if user is None:
@@ -50,55 +74,41 @@ def logout():
 
 @app.route('/changeinfo', methods=['GET', 'POST'])
 def changeinfo():
-	info = User.query.get(session['user_email'])
-
 	if request.method == 'POST':
+		info = User.query.get(session['user_email'])
 		newinfo = request.form
-		info.name = newinfo['name']
-		if newinfo['pw'] == newinfo['pwcf']:
-			info.password = newinfo['pw']
+		
+		if check_password_hash(info.password, newinfo['pw']):			
 
-			db.session.commit()
-			return redirect(url_for('index'))
+			if newinfo['newpw'] == newinfo['pwcf']:
+				info.name = newinfo['name']
+				
+				info.password = newinfo['newpw']
+				db.session.commit()
+				return redirect(url_for('index'))
 
-		else:
-			return render_template("update_profile.html")
+			else:
+				return render_template("portfolio4.html")
 
 	return render_template("changeinfo.html")
 
 @app.route('/memberout', methods=['GET', 'POST'])
 def memberout():
-	mem = User.query.get(session['user_email'])
-
-
+	
 	if request.method == "POST":
+		mem = User.query.get(session['user_email'])
 		pwconfirm = request.form
-		if pwconfirm['pw'] == mem.password:
-			
+		if check_password_hash(men.password, pwconfirm['pw']):
+
 			db.session.delete(mem)
 			db.session.commit()
-		return redirect(url_for('index'))
+			return redirect(url_for('logout'))
 
 	return render_template("memberout.html")
 
+	
 
-@app.route('/user/join/', methods=['GET','POST'])
-def user_join():
-	form = JoinForm()
 
-	if request.method == "POST":
-		if form.validate_on_submit():
-			user = User(
-				email = form.email.data,
-				password = generate_password_hash(form.password.data),
-				name = form.name.data
-			)
-			db.session.add(user)
-			db.session.commit()
-			
-			return redirect(url_for('index'))
-	else :
-		return render_template('/user/join.html', form=form)
 
 
 
