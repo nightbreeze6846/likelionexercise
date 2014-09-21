@@ -1,1 +1,25 @@
 body { padding-top: 70px; }
+
+#JoinModal{
+	width:400px;
+	margin : auto;
+	margin-top: 30px;
+}
+
+.col-join-right{
+	width:80%;
+}
+
+.col-join-left{
+	width:20%;
+}
+
+
+.form-group > input{
+	width:100%;
+}
+
+.googleplusbtn{
+	background-color: #dd4b39;
+	border-color: #aa333b;
+}

@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, \
 	 check_password_hash
 from sqlalchemy import desc
 from apps import app, db
+import datetime
 from apps.forms import JoinForm, LoginForm
 from apps.models import (
 	 User
@@ -12,42 +13,45 @@ from apps.models import (
 #     Music,
 #     Portfolio
 )
-import pusher
 
-
-# @index 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	user = User.query.get(session['user_email'])
+	
 	if 'user_email' in session :
-		
+		user = User.query.get(session['user_email'])	
 		return render_template("mypage.html",user=user)
-	return render_template("login.html")
+
+	form = JoinForm()
+	return render_template("login.html", form = form, joinModalOn='False')
 
 @app.route('/user/join/', methods=['GET','POST'])
 def user_join():
+
+
 	form = JoinForm()
 
-	if request.method == "POST":
-		if form.validate_on_submit():
-			user = User(
-				email = form.email.data,
-				password = generate_password_hash(form.password.data),
-				name = form.name.data
-			)
-			db.session.add(user)
-			db.session.commit()
+	
+	if form.validate_on_submit():
+		user = User(
+			email = form.email.data,
+			password = generate_password_hash(form.password.data),
+			name = form.name.data,
+			birthday = form.birthday.data
+		)
+		year=datetime.date.today().strftime("%Y")
+		user.age =  int(year)-int(user.birthday.year) +1
+		
+		db.session.add(user)
+		db.session.commit()
 
-			session.permanent = True
-			session['user_email'] = user.email
-			session['user_name'] = user.name
+		session.permanent = True
+		session['user_email'] = user.email
+		session['user_name'] = user.name
 
-			return redirect(url_for('index'))
-		else:
-			return render_template('/user/joinagain.html')
-	else :
-		return render_template('/user/join.html', form=form)
+		return redirect(url_for('index'))
+	else:
+		return render_template("login.html", form = form, joinModalOn='True')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -69,7 +73,8 @@ def login():
 		flash(u'로그인 하셨습니다.', 'success')
 		return redirect(url_for('index'))
 	
-	return render_template("login.html")
+	form = JoinForm()
+	return render_template("login.html",form = form, joinModalOn='False')
 
 @app.route('/logout')
 def logout():
@@ -114,11 +119,6 @@ def memberout():
 
 	return render_template("memberout.html")
 
-	
-
-
-
- 
 @app.route('/mypage/', methods=['GET'])
 def mypage():
 	user = User.query.get(session['user_email'])
