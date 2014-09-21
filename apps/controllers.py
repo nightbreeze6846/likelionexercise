@@ -30,7 +30,7 @@ def user_join():
 
 
 	form = JoinForm()
-
+	
 	
 	if form.validate_on_submit():
 		user = User(
