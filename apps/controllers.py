@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, request, redirect, url_for, flash, session, g
+from flask import jsonify, render_template, request, redirect, url_for, flash, session, g
 from werkzeug.security import generate_password_hash, \
 	 check_password_hash
 from sqlalchemy import desc
@@ -24,6 +24,18 @@ def index():
 
 	form = JoinForm()
 	return render_template("login.html", form = form, joinModalOn='False')
+
+
+@app.route('/user/join/check_email')
+def check_email():
+	email_input= request.args.get('email_input',"",type=str)
+	user = User.query.get(email_input)
+	if user != None:
+		return jsonify(emailCheckPassed="False")
+	else:
+		return jsonify(emailCheckPassed="True")
+
+
 
 @app.route('/user/join/', methods=['GET','POST'])
 def user_join():

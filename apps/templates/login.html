@@ -46,7 +46,7 @@
 					<!-- /모달 바디 -->
 					<!-- 모달 footer -->
 					<div class="modal-footer">
-						<button type='submit' class="btn btn-primary"  style="width:100%">회원가입</button>
+						<button type='submit' class="btn btn-primary" id="joinbtn" style="width:100%">회원가입</button>
 						<button type="button" class="googleplusbtn btn btn-primary" style="width: 100%;
 margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
@@ -65,7 +65,33 @@ margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</but
 		if('{{ joinModalOn }}' == 'True'){
 			$('#JoinModal').modal('show');	
 		}
-		
+		document.getElementById("email").onchange = function() {
+			$.ajax({
+				url:"/user/join/check_email",
+				data:{
+					email_input: $('#email').val()
+				},
+				dataType:'JSON',
+				success:function(result){
+					if(result.emailCheckPassed == "True"){
+						$("#email").popover('hide');
+						document.getElementById("joinbtn").disabled=false;
+					}
+					else{
+						$("#email").popover('show');
+						document.getElementById("joinbtn").disabled=true;
+					}
+				}
+			});
+		};
+		document.getElementById("joinbtn").disabled=false;
+		$("#email")
+			.popover({ placement: "bottom", content: "이미 존재하는 이메일입니다.", trigger:'manual' })
+         	.blur(function () {
+             	$(this).popover('hide');
+           	});	
+ 
+        
 	</script>
 
 	<!-- /회원가입 Modal -->
