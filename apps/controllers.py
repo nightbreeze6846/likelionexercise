@@ -86,7 +86,7 @@ def login():
 		return redirect(url_for('index'))
 	
 	form = JoinForm()
-	return render_template("login.html",form = form, joinModalOn='False')
+	return render_template("login.html",form = form, joinModalOn='False', user=user)
 
 @app.route('/logout')
 def logout():
@@ -129,11 +129,12 @@ def memberout():
 			db.session.commit()
 			return redirect(url_for('logout'))
 
-	return render_template("memberout.html")
+	return render_template("memberout.html", user=mem)
 
 @app.route('/mypage/', methods=['GET'])
 def mypage():
 	user = User.query.get(session['user_email'])
+	print "mypage"
 	return render_template('mypage.html', user=user)    
 
 @app.route('/save_profile', methods=['POST'])
