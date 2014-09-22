@@ -103,10 +103,10 @@ def changeinfo():
 		newpw = request.form['newpw']
 		pwcf = request.form['pwcf']
 		
-		if check_password_hash(user.password, nowpw) and newpw == pwcf:
+		if (newpw == pwcf) and check_password_hash(user.password, nowpw) :
 
 			user.name = newname
-			user.password = newpw
+			user.password = generate_password_hash(newpw)
 
 			db.session.commit()
 			session.permanent = True
