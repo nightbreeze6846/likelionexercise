@@ -136,7 +136,6 @@ def memberout():
 @app.route('/mypage/', methods=['GET'])
 def mypage():
 	user = User.query.get(session['user_email'])
-	print "mypage"
 	return render_template('mypage.html', user=user)    
 
 @app.route('/save_profile', methods=['POST'])
