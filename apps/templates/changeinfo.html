@@ -5,10 +5,15 @@
 	<p>회원정보 수정</p>
 
 	<form action=" {{ url_for('changeinfo') }}" method="POST">
+
+		<div class="input-group">
+			<span class="input-group-addon" >메일 : {{ session['user_email'] }}</span>
+		</div>
+		<br>
 	
 		<div class="input-group">
 			<span class="input-group-addon" >이름</span>
-			<input type="text" class="form-control" id="email_input" name="name" placeholder="{{ user.name }}">
+			<input type="text" class="form-control" id="email_input" name="name" value="{{ session['user_name'] }}">
 		</div>
 		<br>
 		<div class="input-group">

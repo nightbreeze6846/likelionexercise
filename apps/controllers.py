@@ -114,7 +114,7 @@ def changeinfo():
 			return redirect(url_for('mypage'))
 
 		else:
-			return render_template("portfolio4.html")
+			return render_template("changeinfo.html")
 
 	return render_template("changeinfo.html", user=user)
 
@@ -122,16 +122,16 @@ def changeinfo():
 def memberout():
 	
 	if request.method == "POST":
-		mem = User.query.get(session['user_email'])
+		user = User.query.get(session['user_email'])
 		pwconfirm = request.form
 
-		if check_password_hash(mem.password, pwconfirm['pw']):
+		if check_password_hash(user.password, pwconfirm['pw']):
 			
-			db.session.delete(mem)
+			db.session.delete(user)
 			db.session.commit()
 			return redirect(url_for('logout'))
 
-	return render_template("memberout.html", user=mem)
+	return render_template("memberout.html")
 
 @app.route('/mypage/', methods=['GET'])
 def mypage():

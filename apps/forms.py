@@ -20,7 +20,7 @@ class JoinForm(Form):
     )
     password = PasswordField(
         u'패스워드',
-        [validators.data_required(u'패스워 드를 입력하시기 바랍니다.'),
+        [validators.data_required(u'패스워드를 입력하시기 바랍니다.'),
         validators.EqualTo('confirm_password', message=u'패스워드가 일치하지않습니다.')],
         description={'placeholder': u'패스워드를 입력하세요.'}
     )
@@ -32,7 +32,7 @@ class JoinForm(Form):
     name = StringField(
         u'이름',
         [validators.data_required(u'이름을 입력하시기 바랍니다.')],
-        description={'placeholder': u'이름을 입력하세요.'}
+        description={'placeholder': u'뮤지션(혹은 그룹) 이름을 입력해주세요.'}
     )
     birthday = DateField(
         u'생일',
