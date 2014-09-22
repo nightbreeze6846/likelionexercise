@@ -109,6 +109,8 @@ def changeinfo():
 			user.password = newpw
 
 			db.session.commit()
+			session.permanent = True
+			session['user_name'] = user.name
 			return redirect(url_for('mypage'))
 
 		else:
