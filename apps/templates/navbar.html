@@ -32,7 +32,7 @@
       </li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url_for('mypage') }}">{{ user.name }}</a></li>
+        <li><a href="{{ url_for('mypage') }}">{{ session['user_name'] }}</a></li>
         <li><a href="{{ url_for('changeinfo') }}">회원정보 수정</a></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
       </ul>
