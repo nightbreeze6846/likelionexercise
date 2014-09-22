@@ -1,4 +1,11 @@
-body { padding-top: 70px; }
+body { 
+	padding-top: 70px; 
+	background-image: url(http://i.imgur.com/07t2mb2.gif);
+	background-width: 1440px;
+	background-height: 386px;
+
+}
+
 
 #JoinModal{
 	width:400px;
