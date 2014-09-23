@@ -19,8 +19,11 @@ from apps.models import (
 def index():
 	
 	if 'user_email' in session :
-		user = User.query.get(session['user_email'])	
-		return render_template("mypage.html",user=user)
+		user = User.query.get(session['user_email'])
+		if user.page_domain != None:
+			return render_template("mypage.html",user=user)
+		else:
+			return render_template("createmypage.html",user=user)
 
 	form = JoinForm()
 	return render_template("login.html", form = form, joinModalOn='False')
@@ -137,6 +140,16 @@ def memberout():
 def mypage():
 	user = User.query.get(session['user_email'])
 	return render_template('mypage.html', user=user)    
+
+@app.route('/set_domain', methods=['POST'])
+def set_domain():
+	if request.method == 'POST':
+		user = User.query.get(session['user_email'])
+		inputdom = request.form
+		user.page_domain = 'www.musicdoc.com/' + inputdom['inputdomain']
+		db.session.commit()
+		return redirect(url_for('index'))
+	return render_template('createmypage.html')
 
 @app.route('/save_profile', methods=['POST'])
 def save_profile():

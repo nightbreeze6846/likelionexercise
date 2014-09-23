@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div id="page-content-wrapper">
+  <div class="container">
+
+
+    <div class="row">
+          <div class="col-lg-12">
+              
+              
+          </div>
+
+<div class="col-md-6 portfolio-item">
+                <a href="" data-target="#myModal" type="button"  data-toggle="modal">도메인 입력</a>
+                
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                          <h3 class="modal-title" id="myModalLabel">도메인을 설정해주세요!</h3>
+                        </div>
+                        <form class="form-horizontal" role="form" action="{{url_for('set_domain')}}" method="POST">
+                          <!-- 모달 바디 -->
+                          <div class="modal-body">
+                            
+                              <!-- 이름입력 -->
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">도메인</label>
+                                <div class="col-sm-10">
+                                  www.musicdoc.com/<input type="text" class="form-control" id='domaininput' name="inputdomain" placeholder="사용할 도메인 뒷자리를 입력해주세요.">
+                                </div>
+                                <p id='domexpl'>도메인은 MusicDoc.com의 뒷자리에 '/'를 통하여 설정되며, 한 번 결정되면 바꿀 수 없으니 신중하게 정해주세요!</p>
+                              </div>
+                                                         
+                            <!-- /모달 바디 -->
+                            <!-- 모달 footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                              <button type="submit" class="btn btn-primary" id="save_profile">변경사항 저장</button>
+                            </div>
+                            <!-- /모달 footer -->
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /프로필-->
+                  </div> 
+                  <!-- /Modal -->
+
+                        
+                
+          </div>
+      </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+{% endblock %}

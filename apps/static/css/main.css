@@ -30,3 +30,13 @@ body {
 	background-color: #dd4b39;
 	border-color: #aa333b;
 }
+
+#domaininput {
+	width: 70%;
+	display: inline;
+	
+}
+#domexpl {
+	margin-left: 20%;
+	margin-right: 3%;
+}
