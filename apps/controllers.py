@@ -151,6 +151,13 @@ def save_profile():
 		db.session.commit()
 	return redirect(url_for('mypage'))
 
+@app.route('/history', methods=['GET','POST'])
+def edit_history():
+	if request.method == 'POST':
+		return render_template('/user/perfomancehistory.html')
+	else:
+		return render_template('/user/perfomancehistory.html')
+
 
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():
