@@ -1,9 +1,32 @@
 body { 
 	padding-top: 70px; 
-	background-image: url(http://i.imgur.com/07t2mb2.gif);
-	background-width: 1440px;
-	background-height: 386px;
+	
 
+}
+
+.container{
+	background-image: url(https://lh6.googleusercontent.com/qVc1xvyCS14hWXr067EkvuSzErskqzwuu9kxhLSMjrpp9WtTJNvQR12vPBs6cOWeB-uowanLxoU=w1416-h612);
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.porfolioh{
+
+	padding:24px 23px;
+	border-color:#353535;
+}
+
+
+
+
+
+.firstsign{
+	width:500px;
+	margin:0px;
+	float:right;
 }
 
 
@@ -39,4 +62,11 @@ body {
 #domexpl {
 	margin-left: 20%;
 	margin-right: 3%;
+}
+
+#myModalLabel{
+
+	color:#230F2B;
+	font-size:40px;
+	text-align: center;
 }

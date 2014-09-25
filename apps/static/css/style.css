@@ -1,3 +1,12 @@
+.container-fluid {
+
+    background-color:#230F2B;
+    color:#FFFFFF;
+}
+
+
+
+
 .no-list {
     padding: 10px;
     text-align: center;
