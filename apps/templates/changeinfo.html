@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
 {% block contents %}
+<div class="changeinfo">
 <div class="container"  style="width:400px; text-align:center; ">
-	<p>회원정보 수정</p>
+	<span class="infochange">회원정보 수정</span>
 
 	<form action=" {{ url_for('changeinfo') }}" method="POST">
 
@@ -35,5 +36,6 @@
 	</form>
 	<br>
 	<P><a href="{{ url_for('memberout') }}">회원 탈퇴</a></P>
+</div>
 </div>
 {% endblock %}

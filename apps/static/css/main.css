@@ -15,6 +15,21 @@ body {
 
 }
 
+.changeinfo{
+
+	width:500px;
+	margin-left: 400px;
+
+	border-color:#353535; 
+	background-color: rgba(207, 207, 207, 0.4);
+}
+
+.infochange{
+	font-size: 25px;
+	font-family:맑은고딕;
+	padding: 20px;
+}
+
 .firstsign{
 
 	background-color: rgba(207, 207, 207, 0.4);
