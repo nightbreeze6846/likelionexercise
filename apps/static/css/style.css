@@ -4,7 +4,38 @@
     color:#FFFFFF;
 }
 
+.col-md-3 portfolio-item{
+    border:1px solid #dddddd;
+    border-color:#2A0066;
+}
 
+
+
+.w{
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    -moz-box-shadow: 5px 5px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 5px 5px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
+}
+
+a h6{
+    color:#1B0075;
+    font-size:30px ;
+}
+
+hr{
+    display: block;
+    height: 10px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+
+}
+
+/*my page css
+*/
 
 
 .no-list {
