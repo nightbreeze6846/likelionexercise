@@ -148,8 +148,8 @@ def set_domain():
 
 
 @app.route('/<string:page_domain>', methods=['GET'])
-def personal_page(email):
-	user = User.query.get(email)
+def personal_page(page_domain):
+	user = User.query.get(page_domain)
 	if user is not None:
 		return render_template('portfolio4.html', data = user)
 	
@@ -171,10 +171,10 @@ def save_profile():
 	return redirect(url_for('mypage'))
 
 
-# @app.route('/portfolio4/', methods=['GET','POST'])
-# def portfolio4():
-#     if request.method == "GET":
-#         return render_template('portfolio4.html')    
+@app.route('/portfolio4/', methods=['GET','POST'])
+def portfolio4():
+    if request.method == "GET":
+        return render_template('portfolio4.html')    
 
 @app.route('/portfolio5/', methods=['GET','POST'])
 def portfolio5():
