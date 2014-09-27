@@ -1,6 +1,6 @@
-application: geekintheloftcloud
+application: yourewithchoikop
 
-version: 1
+version: 0-0-1-proto
 
 runtime: python27
 api_version: 1
