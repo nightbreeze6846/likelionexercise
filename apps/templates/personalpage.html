@@ -21,22 +21,21 @@
                   <ul></ul>
 
               </div>
-
             
               <div class="col-md-9 portfolio-item">
-                <h3>Profile</h3>
-            
+                <h3>Profile</h3>  
                   <p id="mypage_name">name : {{ data.name }} </p>
                   <p id="mypage_age">age : {{ data.age }} </p>
                   <p id="mypage_profile">profile : {{ data.profile }} </p>
-                  <p id="mypage_domain">domain : {{ data.page_domain}} </p>
+                  <p id="mypage_domain">domain : www.musicdoc.com/{{ data.page_domain}} </p>
               </div>
-              <hr>
-               <div class="col-md-9 portfolio-item">                
+
+               <div class="col-md-9 portfolio-item">
+                
+
                 <h3>Performance History</h3>
                 <div class="container-item container">
-                </div>
-                
+                  
                 
                 {% if histories %}
                   {% for item in histories %}
@@ -44,7 +43,7 @@
                       
                   {% endfor %}
                 {% else %}
-                  <h4>경력을 추가해보세요!</h4>
+                  <h4>등록된 경력이 없습니다.</h4>
                 {% endif%}
                 
               </div>
@@ -71,7 +70,7 @@
              
                 <div class="col-md-6">
                   
-                  <h3>Video</h3>
+                 <h3>Video</h3>
 
 
                   <div class="row">

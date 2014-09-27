@@ -9,20 +9,22 @@
     <div class="row w">
 
           <div class="porfolioh">
-              <div class="col-md-3 portfolio-item2">
+              <div class="col-md-3 portfolio-item">
                  
                       
                       <img src="/static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
 
                   
                    <hr>
-                 
+                  <ul>My Page</ul>
+                  <ul>Portfolio수정</ul>
+                  <ul>Portfolio삭제</ul>
 
               </div>
 
             
               <div class="col-md-9 portfolio-item">
-                <span class="h6">Profile</span>
+                <h3>Profile</h3>
                 <a href="" data-target="#myModal" type="button"  data-toggle="modal">수정</a>
                 
                   <!-- Modal -->
@@ -96,9 +98,9 @@
                <div class="col-md-9 portfolio-item">
                 
 
-                <span class="h6">Performance History</span>
+                <h3>Performance History</h3>
                 <div class="container-item container">
-                  <a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+                  <a data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
                   {% block historymodal %}
                   {% include "historymodal.html" %}
                   {% endblock %}
@@ -107,11 +109,11 @@
                 
                 {% if histories %}
                   {% for item in histories %}
-                    <h2>item.title</h2>
+                    <h4>item.title</h4>
                       
                   {% endfor %}
                 {% else %}
-                  <span class="h5">경력을 추가해보세요!</span>
+                  <h4>경력을 추가해보세요!</h4>
                 {% endif%}
                 
               </div>
@@ -120,9 +122,9 @@
               <br>
               <br> 
 
-               <div class="col-md-9 portfolio-item">
+               <div class="col-md-6 portfolio-item">
                 
-                <span class="h6">Music</span>
+                <h3>Music</h3>
                 
                   <a href="#">박준모 - 지금이순간</a>
                   <a href="#">박준모 - memory</a>
@@ -136,9 +138,9 @@
               <br>
 
              
-                <div class="col-md-9 portfolio-item">
+                <div class="col-md-6">
                   
-                  <span class="h6">Video</span>
+                 <h3>Video</h3>
 
 
                   <div class="row">
