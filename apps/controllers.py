@@ -233,7 +233,13 @@ def portfolio7():
 @app.route('/portfolio8/', methods=['GET','POST'])
 def portfolio8():
     if request.method == "GET":
-        return render_template('portfolio8.html')    
+        return render_template('portfolio8.html')   
+
+@app.route('/Contact/', methods=['GET','POST'])
+def Contact():
+	
+    if request.method == "GET":
+        return render_template('Contact.html')     
 
 
 

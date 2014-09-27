@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Contact.css') }}">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+{% extends "layout.html" %}
+
+{% block contents %}
+
+  <div class="container">
+    <div class="row">
+          <div class="page">
+             <div class="page2 ng">
+               
+              <div class="row centered">
+              <div class="col-lg-8 col-lg-offset-2 w">
+                <h1>How to<br/>CONTACT</h1>
+              </div>
+            </div>
+        
+
+            <div class="row centered">
+              <div class="col-lg-8 col-lg-offset-2 w tooltip-demo">
+                <a data-toggle="tooltip" title="Dribbble" href="http://dribbble.com/CarlosAlvarez"><i class="fa fa-dribbble"></i></a>
+                <a data-toggle="tooltip" title="Twitter" href="http://twitter.com/BlackTie_co"><i class="fa fa-twitter"></i></a>
+                <a data-toggle="tooltip" title="Premium Themes" href="https://wrapbootstrap.com/user/Basicoh"><i class="fa fa-briefcase"></i></a>
+                <a data-toggle="tooltip" title="Free Themes" href="http://BlackTie.co"><i class="fa fa-heart"></i></a>
+                <a data-toggle="tooltip" title="Blog" href="http://freelance.postach.io"><i class="fa fa-comment"></i></a>
+                <a data-toggle="tooltip" title="Email Me!" href="mailto:carlos@alvarez.is"><i class="fa fa-envelope"></i></a>
+                <a data-toggle="tooltip" title="Newsletter" href="http://eepurl.com/Eck_T"><i class="fa fa-coffee"></i></a>
+              </div>
+            </div>
+
+
+       
+    </div>
+   </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+{% endblock %}
+
+ <script>
+    $('.tooltip-demo').tooltip({
+      selector: "[data-toggle=tooltip]",
+      container: "body"
+    })
+  </script>
