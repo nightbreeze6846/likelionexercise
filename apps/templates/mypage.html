@@ -43,7 +43,7 @@
                               <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="inputname" value="{{ session['user_name'] }}">
+                                  <input type="text" class="form-control" name="inputname" value="{{ user.name }}">
                                 </div>
                               </div>
                               <!-- /이름입력-->
@@ -86,11 +86,16 @@
                   <p id="mypage_name">name : {{ user.name }} </p>
                   <p id="mypage_age">age : {{ user.age }} </p>
                   <p id="mypage_profile">profile : {{ user.profile }} </p>
-                  <p id="mypage_domain">domain : {{ user.page_domain}} </p>
+                  <p id="mypage_domain">domain : www.musicdoc.com/{{ user.page_domain}} </p>
               </div>
 
 
               <hr>
+
+              <br>
+              <br>
+              <br>
+              <br>
 
 
 
@@ -101,6 +106,7 @@
                 <h3>Performance History</h3>
                 <div class="container-item container">
                   <a data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+
                   {% block historymodal %}
                   {% include "historymodal.html" %}
                   {% endblock %}
@@ -109,7 +115,15 @@
                 
                 {% if histories %}
                   {% for item in histories %}
-                    <h4>item.title</h4>
+                    <div><h3>{{item.title}}</h3> 
+                      <button type="button" class="close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                    </div>
+                    
+                    <p>{{item.content}}</p>
+                    <p>{{item.starttime}} 부터 {{item.endtime}}</p>
                       
                   {% endfor %}
                 {% else %}
@@ -121,6 +135,7 @@
               <br>
               <br>
               <br> 
+              <br>
 
                <div class="col-md-6 portfolio-item">
                 
@@ -133,6 +148,7 @@
                   </a>
               </div>
 
+              <br>
               <br>
               <br>
               <br>

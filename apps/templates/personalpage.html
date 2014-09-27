@@ -1,6 +1,182 @@
 {% extends "layout.html" %}
 
 {% block contents %}
+
+{% if form %}
+<div id="page-content-wrapper">
+  <div class="container">
+
+    <div class = "col-lg-10 col-lg-offset-1">
+
+    <div class="row w">
+
+          <div class="porfolioh">
+              <div class="col-md-3 portfolio-item">                 
+                      
+                      <img src="/static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+                  
+                   <hr>
+                  <ul>My Page</ul>
+                  <ul>Portfolio수정</ul>
+                  <ul>Portfolio삭제</ul>
+
+              </div>
+            
+              <div class="col-md-9 portfolio-item">
+                <h3>Profile</h3>
+                <a href="" data-target="#myModal" type="button"  data-toggle="modal">수정</a>
+                
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                          <h4 class="modal-title" id="myModalLabel">2222Profile</h4>
+                        </div>
+                        <form class="form-horizontal" role="form" action="{{url_for('save_profile')}}" method="POST">
+                          <!-- 모달 바디 -->
+                          <div class="modal-body">
+                            
+                              <!-- 이름입력 -->
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="inputname" value="{{ user.name }}">
+                                </div>
+                              </div>
+                              <!-- /이름입력-->
+                              <!-- 나이입력 -->
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">나이</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="inputage" value="{{ user.age }}">
+                                </div>
+                              </div>
+                              <!-- /나이입력-->
+
+                              <!-- 프로필-->
+                              <div class="form-group">
+                                <label for="inputage" class="col-sm-2 control-label">프로필</label>
+                                <div class="col-sm-10">
+                                  <textarea type="text" class="form-control" name="inputprofile" placeholder=""> {{ user.profile }} </textarea>
+                                </div>
+                              </div>
+                              <!-- /프로필-->                        
+                               
+                            </div>
+                            <!-- /모달 바디 -->
+                            <!-- 모달 footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                              <button type="submit" class="btn btn-primary" id="save_profile">변경사항 저장</button>
+                            </div>
+                            <!-- /모달 footer -->
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /프로필-->
+
+                  </div> 
+                  <!-- /Modal -->
+
+                  <p id="mypage_name">name : {{ user.name }} </p>
+                  <p id="mypage_age">age : {{ user.age }} </p>
+                  <p id="mypage_profile">profile : {{ user.profile }} </p>
+                  <p id="mypage_domain">domain : www.musicdoc.com/{{ user.page_domain}} </p>
+              </div>
+
+              <hr>
+
+              <br>
+              <br>
+              <br>
+              <br>
+
+               <div class="col-md-9 portfolio-item">
+                
+
+                <h3>Performance History</h3>
+                <div class="container-item container">
+                  <a data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+
+                  {% block historymodal %}
+                  {% include "historymodal.html" %}
+                  {% endblock %}
+                </div>
+                
+                
+                {% if histories %}
+                  {% for item in histories %}
+                    <div><h3>{{item.title}}</h3> 
+                      <button type="button" class="close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                    </div>
+                    
+                    <p>{{item.content}}</p>
+                    <p>{{item.starttime}} 부터 {{item.endtime}}</p>
+                      
+                  {% endfor %}
+                {% else %}
+                  <h4>경력을 추가해보세요!</h4>
+                {% endif%}
+                
+              </div>
+
+              <br>
+              <br>
+              <br> 
+              <br>
+
+               <div class="col-md-6 portfolio-item">
+                
+                <h3>Music</h3>
+                
+                  <a href="#">박준모 - 지금이순간</a>
+                  <a href="#">박준모 - memory</a>
+
+                  <a href="#">
+                  </a>
+              </div>
+
+              <br>
+              <br>
+              <br>
+              <br>
+
+             
+                <div class="col-md-6">
+                  
+                 <h3>Video</h3>
+
+
+                  <div class="row">
+                    <div class="col-xs-4 col-sm-3">
+                      <img src="http://i.ytimg.com/vi/dmG_1LwtlLI/0.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
+                    </div>
+                    <div class="col-xs-4 col-sm-3">
+                      <img src="http://www.tvian.com/TVianUpload/TVian/MBCinfo/images/info/201011191548151_P.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
+                    </div>
+                  </div>
+                </div> 
+
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              
+          </div>
+      </div>
+    </div><!-- <col-lg-10> -->
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+{% else %}
+
 <div id="page-content-wrapper">
   <div class="container">
 
@@ -23,7 +199,7 @@
               </div>
             
               <div class="col-md-9 portfolio-item">
-                <h3>Profile</h3>  
+                <h3>Profile1111</h3>  
                   <p id="mypage_name">name : {{ data.name }} </p>
                   <p id="mypage_age">age : {{ data.age }} </p>
                   <p id="mypage_profile">profile : {{ data.profile }} </p>
@@ -95,7 +271,6 @@
   </div>
 </div>
 <!-- /#page-content-wrapper -->
-
-
+{% endif %}
 {% endblock %}
 
