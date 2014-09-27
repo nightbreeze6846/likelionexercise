@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 application: thinkimj
-
-
 version: 0-0-1-proto 
-=======
-application: geekintheloftcloud
-
-version: 1
->>>>>>> 8b699772e352ce93694c0f78fe8cd771fc1bd8b9
 runtime: python27
 api_version: 1
 threadsafe: yes
