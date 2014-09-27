@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, \
 from sqlalchemy import desc
 from apps import app, db
 import datetime
+
 import json
 from apps.forms import JoinForm, LoginForm, HistoryAddForm
 from apps.models import (
@@ -14,6 +15,10 @@ from apps.models import (
 #     Music,
 #     Portfolio
 )
+
+from apps.forms import JoinForm, LoginForm
+from apps.models import User
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -149,10 +154,21 @@ def set_domain():
 	if request.method == 'POST':
 		user = User.query.get(session['user_email'])
 		inputdom = request.form
-		user.page_domain = 'www.musicdoc.com/' + inputdom['inputdomain']
+		user.page_domain = inputdom['inputdomain']
 		db.session.commit()
 		return redirect(url_for('index'))
 	return render_template('createmypage.html')
+
+
+@app.route('/<string:page_domain>', methods=['GET'])
+def personal_page(page_domain):
+	user = User.query.get(page_domain)
+	if user is not None:
+		return render_template('portfolio4.html', data = user)
+	
+	else: 
+		return render_template('portfolio5.html')
+
 
 @app.route('/save_profile', methods=['POST'])
 def save_profile():

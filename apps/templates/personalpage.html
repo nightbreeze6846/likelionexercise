@@ -4,72 +4,25 @@
 <div id="page-content-wrapper">
   <div class="container">
 
-    <div class = "col-lg-10 col-lg-offset-1">
 
-<<<<<<< HEAD
     <div class="row">
-    
-          <div class="container">
-            <div class="container-item container">
-                <a href="#">
-                    
-                  <img src="https://lh4.googleusercontent.com/-TpuNoofkmQ4/VCFtanwlp3I/AAAAAAAABBM/c7mm4YxS7Fk/w120-h160-no/questionmark.jpg" class="img-thumbnail"></img>
-
-                </a>
-            </div>
-
-            
-              <div class="container-item container">
-                <p id="header1">Profile</p><a href="" data-target="#ProfileModal" type="button"  data-toggle="modal">수정</a>
-                {% block profilemodal %}
-                  {% include "profilemodal.html" %}
-                {% endblock %}
-
-                <p id="mypage_name">name : {{ user.name }} </p>
-                <p id="mypage_age">age : {{ user.age }} </p>
-                <p id="mypage_profile">profile : {{ user.profile }} </p>
-                <p id="mypage_domain">domain : {{ user.page_domain}} </p>
-              </div>
+          <div class="col-lg-12">
               
-              <div class="container-item container">
-                <p id="header1">Music History</p><a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
-                {% block historymodal %}
-                  {% include "historymodal.html" %}
-                {% endblock %}
-              </div>
-                     
-              <!-- <div class="container-item container">
-                <p id="header1">Video</p>
-                <div class="row">
-                  <div class="col-xs-4 col-sm-3">
-                    <img src="http://i.ytimg.com/vi/dmG_1LwtlLI/0.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
-                  </div>
-                  <div class="col-xs-4 col-sm-3">
-                    <img src="http://www.tvian.com/TVianUpload/TVian/MBCinfo/images/info/201011191548151_P.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
-                  </div>
-                </div>
-              </div>  -->
-=======
-    <div class="row w">
+              
+          </div>
 
-          <div class="porfolioh">
+          <div class="row">
               <div class="col-md-3 portfolio-item">
                   <a href="#">
                       
                       <img src="https://lh4.googleusercontent.com/-TpuNoofkmQ4/VCFtanwlp3I/AAAAAAAABBM/c7mm4YxS7Fk/w120-h160-no/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
 
                   </a>
-                   <hr>
-                  <ul>My Page</ul>
-                  <ul>Portfolio수정</ul>
-                  <ul>Portfolio삭제</ul>
-
               </div>
 
             
-              <div class="col-md-9 portfolio-item">
-                <a href="#"><h6>Profile</h6></a>
-                <a href="" data-target="#myModal" type="button"  data-toggle="modal">수정</a>
+              <div class="col-md-6 portfolio-item">
+                <p id="header1">Profile</p><a href="" data-target="#myModal" type="button"  data-toggle="modal">수정</a>
                 
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -122,26 +75,25 @@
                       </div>
                     </div>
                     <!-- /프로필-->
-
-
                   </div> 
                   <!-- /Modal -->
 
                   <p id="mypage_name">name : {{ user.name }} </p>
                   <p id="mypage_age">age : {{ user.age }} </p>
                   <p id="mypage_profile">profile : {{ user.profile }} </p>
-                  <p id="mypage_domain">domain : www.musicdoc.com/{{ user.page_domain}} </p>
+                  <p id="mypage_domain">domain : {{ user.page_domain}} </p>
               </div>
 
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              
 
-              <hr>
 
-
-
-
-               <div class="col-md-9 portfolio-item">
-                
-                <a href="#"><h6>Performance History</h6></a>
+              <div class="col-md-11 portfolio-item">
+                <p id="header1">Performance History</p>
                 
                   <p id="name1">2012년 비긴어게인 OST 제작참여</p>
                   <p id="name1">2014년 7-14 ~ 9-14 뮤지컬 모짜르트 주연!</p>
@@ -154,8 +106,8 @@
               <br>
               <br> 
 
-               <div class="col-md-6 portfolio-item">
-                <a href="#"><h6>Music</h6></a>
+               <div class="col-md-11 portfolio-item">
+                <p id="header1">Music</p>
                 
                   <a href="#">박준모 - 지금이순간</a>
                   <a href="#">박준모 - memory</a>
@@ -169,8 +121,8 @@
               <br>
 
              
-                <div class="col-md-6">
-                  <a href="#"><h6>Video</h6></a>
+                <div class="col-sm-11">
+                  <p id="header1">Video</p>
                   <div class="row">
                     <div class="col-xs-4 col-sm-3">
                       <img src="http://i.ytimg.com/vi/dmG_1LwtlLI/0.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
@@ -180,20 +132,8 @@
                     </div>
                   </div>
                 </div> 
-
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              
-
-
-             
->>>>>>> 0443f81d82208c54a62216f5ea35c586f3d90e4d
           </div>
       </div>
-    </div><!-- <col-lg-10> -->
   </div>
 </div>
 <!-- /#page-content-wrapper -->

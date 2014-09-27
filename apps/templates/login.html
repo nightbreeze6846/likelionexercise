@@ -6,7 +6,7 @@
 	<form action=" {{ url_for('login') }}" method="post">
 
 
-	<div class="col-xs-6">
+	<div id="contents" class="firstsign">
 		<div class="input-group">
 			<span class="input-group-addon" >Email</span>
 			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
@@ -18,10 +18,15 @@
 		</div>
 		<br>
 		<button type="submit">로그인</button>
+		<a href="" data-target="#JoinModal" type="button"  data-toggle="modal">아직도 회원이 아니신가요?</a>
+	</div>
 	</form>
+
+
 		
 	<!-- 회원가입 Modal 버튼 -->
-	<a href="" data-target="#JoinModal" type="button"  data-toggle="modal">아직도 회원이 아니신가요?</a>
+	
+
 	
 	<!-- 회원가입 Modal -->
 	<div class="modal fade" id="JoinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -54,6 +59,8 @@ margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</but
 					</div>
 					<!-- /모달 footer -->
 				</form>
+
+
 			</div>
 		</div>
 		
@@ -65,7 +72,7 @@ margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</but
 
 	<!-- /회원가입 Modal -->
 
-</div>
+
 {% endblock %}
 
 
