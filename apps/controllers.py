@@ -148,8 +148,8 @@ def set_domain():
 
 
 @app.route('/<string:page_domain>', methods=['GET'])
-def personal_page(page_domain):
-	user = User.query.get(page_domain)
+def personal_page(email):
+	user = User.query.get(email)
 	if user is not None:
 		return render_template('portfolio4.html', data = user)
 	
