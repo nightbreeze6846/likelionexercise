@@ -11,14 +11,12 @@ from apps.forms import JoinForm, LoginForm, HistoryAddForm
 from apps.models import (
 	 User,
 #     Video,
-    History
+    # History
 #     Music,
 #     Portfolio
 )
 
-from apps.forms import JoinForm, LoginForm
-from apps.models import User
-
+	
 
 
 @app.route('/', methods=['GET', 'POST'])
