@@ -67,7 +67,39 @@ margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</but
 
 		<!-- /프로필-->
 	</div> 
-
+	
+	<script type="text/javascript">
+		if('{{ joinModalOn }}' == 'True'){
+			$('#JoinModal').modal('show');	
+		}
+		document.getElementById("email").onchange = function() {
+			$.ajax({
+				url:"/user/join/check_email",
+				data:{
+					email_input: $('#email').val()
+				},
+				dataType:'JSON',
+				success:function(result){
+					if(result.emailCheckPassed == "True"){
+						$("#email").popover('hide');
+						document.getElementById("joinbtn").disabled=false;
+					}
+					else{
+						$("#email").popover('show');
+						document.getElementById("joinbtn").disabled=true;
+					}
+				}
+			});
+		};
+		document.getElementById("joinbtn").disabled=false;
+		$("#email")
+			.popover({ placement: "bottom", content: "이미 존재하는 이메일입니다.", trigger:'manual' })
+         	.blur(function () {
+             	$(this).popover('hide');
+           	});	
+ 
+        
+	</script>
 	
 
 	<!-- /회원가입 Modal -->
