@@ -38,7 +38,7 @@
       </ul>
     {% else %}
       <ul class="nav navbar-nav navbar-right">
-      <li><a>로그인을 해 주세요</a></li>
+      <li><a href="{{ url_for('user_join') }}">회원이 아니라면? 회원가입!</a></li>
       </ul>
     {% endif %}
   </div><!-- /.navbar-collapse -->

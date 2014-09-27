@@ -11,7 +11,7 @@ class User(db.Model):
     name = db.Column(db.String(255))
     birthday = db.Column(db.DateTime())
     age = db.Column(db.Integer)
-    page_domain = db.Column(db.String(255))
+    page_domain = db.Column(db.String(255),unique=True)
     subscribe = db.Column(db.Integer)
     
     # profile content in profile section
