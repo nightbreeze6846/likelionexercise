@@ -1,14 +1,6 @@
 
-<<<<<<< HEAD
-application: thinkimj
-
-
-version: 0-0-1-proto 
-=======
 application: yourewithchoikop
-
 version: 1
->>>>>>> 5bf7652d77bce8ca2a21402fbd89e511437d55ae
 runtime: python27
 api_version: 1
 threadsafe: yes
