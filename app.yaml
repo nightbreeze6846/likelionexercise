@@ -1,8 +1,6 @@
 
-
-application: yourewithchoikop
-
-version: 1
+application: thinkimj
+version: 0-0-1-proto 
 runtime: python27
 api_version: 1
 threadsafe: yes
