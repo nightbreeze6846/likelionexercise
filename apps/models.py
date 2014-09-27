@@ -11,7 +11,7 @@ class User(db.Model):
     name = db.Column(db.String(255))
     birthday = db.Column(db.DateTime())
     age = db.Column(db.Integer)
-    page_domain = db.Column(db.String(255), primary_key = True)
+    page_domain = db.Column(db.String(255))
     subscribe = db.Column(db.Integer)
     
     # profile content in profile section
@@ -23,7 +23,7 @@ class User(db.Model):
 
     # relationships to models 
 #     video = db.relationship('Video', backref="user", lazy='dynamic')
-    history = db.relationship('History', backref="user", lazy='dynamic')
+    # history = db.relationship('History', backref="user", lazy='dynamic')
 #     music = db.relationship('Music', backref="user", lazy='dynamic')
 
 
@@ -36,12 +36,12 @@ class User(db.Model):
 # 	User_email = db.Column(db.String(255), db.ForeignKey('user.email'))
 
 
-class History(db.Model):
-	id = db.Column(db.Integer, primary_key = True)
-	title = db.Column(db.String(255))
-	comments = db.Column(db.String(255))
-	# img
-	user_email = db.Column(db.String(255), db.ForeignKey('user.email'))	
+# class History(db.Model):
+# 	id = db.Column(db.Integer, primary_key = True)
+# 	title = db.Column(db.String(255))
+# 	comments = db.Column(db.String(255))
+# 	# img
+# 	user_email = db.Column(db.String(255), db.ForeignKey('user.email'))	
 
 # class Music(db.Model):
 # 	id = db.Column(db.Integer, primary_key = True)
