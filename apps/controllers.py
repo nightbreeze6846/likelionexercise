@@ -146,7 +146,7 @@ def memberout():
 def mypage():
 	user = User.query.get(session['user_email'])
 	form = HistoryAddForm()
-	histories = user.history.order_by(asc(History.id)).all()
+	histories = user.history.all()
 	return render_template('mypage.html', user=user, form =form, histories = histories)    
 
 @app.route('/set_domain', methods=['POST'])

@@ -103,7 +103,7 @@
 
                 <span class="h6">Performance History</span>
                 <div class="container-item container">
-                  <a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+                  <a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a> 
                   {% block historymodal %}
                   {% include "historymodal.html" %}
                   {% endblock %}
@@ -112,7 +112,15 @@
                 
                 {% if histories %}
                   {% for item in histories %}
-                    <h2>item.title</h2>
+                    <div><h3>{{item.title}}</h3> 
+                      <button type="button" class="close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                      </button>
+                    </div>
+                    
+                    <p>{{item.content}}</p>
+                    <p>{{item.starttime}} 부터 {{item.endtime}}</p>
                       
                   {% endfor %}
                 {% else %}
