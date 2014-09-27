@@ -16,6 +16,6 @@ class Production(Config):
     debug = True
     CSRF_ENABLED = False
     ADMIN = "gabriel6846@gmail.com"
-    SQLALCHEMY_DATABASE_URI = 'mysql+gaerdbms:///BLOG?instance=geekintheloftcloud:musicportfolioproject1'
+    SQLALCHEMY_DATABASE_URI = 'mysql+gaerdbms:///BLOG?instance=geekintheloftcloud:musicportfolioproject2'
     migration_directory = 'migrations'
 

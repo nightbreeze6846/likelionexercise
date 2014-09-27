@@ -40,3 +40,8 @@ body {
 	margin-left: 20%;
 	margin-right: 3%;
 }
+
+.container-item{
+	background-color: white;
+	margin-bottom:20px;
+}

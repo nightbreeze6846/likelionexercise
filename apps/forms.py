@@ -11,6 +11,25 @@ from wtforms.fields.html5 import (
     EmailField,
     DateField
 )
+class HistoryAddForm(Form):
+    title = StringField(
+        u'경력',
+        [validators.data_required(u'경력을 입력하시기 바랍니다.')],
+        description={'placeholder': u'무슨 일을 하셨나요?'}
+    )
+    starttime = DateField(
+        u'언제부터',
+        [validators.data_required(u'기간을 선택하시기 바랍니다.')]
+    )
+    endtime = DateField(
+        u'',
+        [validators.data_required(u'기간을 선택하시기 바랍니다.')]
+    )
+    content = TextAreaField(
+        u'언제까지',
+        [validators.data_required(u'설명을 입력하시기 바랍니다.')],
+        description={'placeholder': u'어떤 일을 하셨는지 자세히 설명해주세요.'}
+    )
 
 class JoinForm(Form):
     email = EmailField(

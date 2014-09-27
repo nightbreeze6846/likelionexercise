@@ -5,11 +5,12 @@ from werkzeug.security import generate_password_hash, \
 from sqlalchemy import desc
 from apps import app, db
 import datetime
-from apps.forms import JoinForm, LoginForm
+import json
+from apps.forms import JoinForm, LoginForm, HistoryAddForm
 from apps.models import (
-	 User
+	 User,
 #     Video,
-#     Event,
+    History
 #     Music,
 #     Portfolio
 )
@@ -20,8 +21,9 @@ def index():
 	
 	if 'user_email' in session :
 		user = User.query.get(session['user_email'])
+		form = HistoryAddForm()
 		if user.page_domain != None:
-			return render_template("mypage.html",user=user)
+			return render_template("mypage.html",user=user, form=form)
 		else:
 			return render_template("createmypage.html",user=user)
 
@@ -139,7 +141,8 @@ def memberout():
 @app.route('/mypage/', methods=['GET'])
 def mypage():
 	user = User.query.get(session['user_email'])
-	return render_template('mypage.html', user=user)    
+	form = HistoryAddForm()
+	return render_template('mypage.html', user=user, form =form)    
 
 @app.route('/set_domain', methods=['POST'])
 def set_domain():
@@ -154,26 +157,30 @@ def set_domain():
 @app.route('/save_profile', methods=['POST'])
 def save_profile():
 	
-	if request.method == 'POST':
-		user = User.query.get(session['user_email'])
+	
+	user = User.query.get(session['user_email'])
 
-		profile_form=request.form
-		user.name = profile_form['inputname']
-		user.age = profile_form['inputage']
-		user.profile = profile_form['inputprofile']
-		db.session.commit()
+	profile_form=request.form
+	user.name = profile_form['inputname']
+	user.age = profile_form['inputage']
+	user.profile = profile_form['inputprofile']
+	db.session.commit()
 	return redirect(url_for('mypage'))
 
-@app.route('/history', methods=['GET','POST'])
-def edit_history():
-	if request.method == 'POST':
-		return render_template('/user/perfomancehistory.html')
-	else:
-		return render_template('/user/perfomancehistory.html')
+@app.route('/history/add', methods=['POST'])
+def add_history():
+	user = User.query.get(session['user_email'])
+
+	history_form = request.form
+
+	
+	db.session.commit()
+	return redirect(url_for('mypage'))
 
 
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():
+	
     if request.method == "GET":
         return render_template('portfolio4.html')    
 

@@ -1,0 +1,35 @@
+ <!-- 히스토리 수정 모달 -->
+<div class="modal fade" id="HistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">History 추가</h4>
+      </div>
+
+      <form class="" role="form" action="{{url_for('add_history')}}" method="POST">
+
+        <!-- 모달 body -->
+        <div class="modal-body">
+          {{ form.hidden_tag() }}
+          {% from "_form_field.html" import render_field %}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+              {{ render_field(field, class="form-control") }}
+          {% endfor %}
+        </div>
+        <!-- /모달 body -->
+
+        <!-- 모달 footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="submit" class="btn btn-primary" >저장</button>
+        </div>
+        <!-- /모달 footer -->
+
+      </form>
+
+    </div>
+  </div>
+  <!-- /프로필-->
+</div> 
+<!-- /히스토리 수정 모달 -->

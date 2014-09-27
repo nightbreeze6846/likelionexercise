@@ -1,0 +1,53 @@
+ <!-- 프로필 수정 모달 -->
+                  <div class="modal fade" id="ProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Profile</h4>
+                        </div>
+                        <form class="form-horizontal" role="form" action="{{url_for('save_profile')}}" method="POST">
+                          <!-- 모달 바디 -->
+                          <div class="modal-body">
+                            
+                              <!-- 이름입력 -->
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="inputname" value="{{ session['user_name'] }}">
+                                </div>
+                              </div>
+                              <!-- /이름입력-->
+                              <!-- 나이입력 -->
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">나이</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="inputage" value="{{ user.age }}">
+                                </div>
+                              </div>
+                              <!-- /나이입력-->
+
+                              <!-- 프로필-->
+                              <div class="form-group">
+                                <label for="inputage" class="col-sm-2 control-label">프로필</label>
+                                <div class="col-sm-10">
+                                  <textarea type="text" class="form-control" name="inputprofile" placeholder=""> {{ user.profile }} </textarea>
+                                </div>
+                              </div>
+                              <!-- /프로필-->
+                        
+                               
+                            </div>
+                            <!-- /모달 바디 -->
+                            <!-- 모달 footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                              <button type="submit" class="btn btn-primary" id="save_profile">변경사항 저장</button>
+                            </div>
+                            <!-- /모달 footer -->
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /프로필-->
+                  </div> 
+                  <!-- /프로필 수정 모달 -->
