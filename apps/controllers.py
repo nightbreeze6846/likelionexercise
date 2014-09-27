@@ -6,13 +6,8 @@ from sqlalchemy import desc
 from apps import app, db
 import datetime
 from apps.forms import JoinForm, LoginForm
-from apps.models import (
-	 User
-#     Video,
-#     Event,
-#     Music,
-#     Portfolio
-)
+from apps.models import User
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -146,10 +141,21 @@ def set_domain():
 	if request.method == 'POST':
 		user = User.query.get(session['user_email'])
 		inputdom = request.form
-		user.page_domain = 'www.musicdoc.com/' + inputdom['inputdomain']
+		user.page_domain = inputdom['inputdomain']
 		db.session.commit()
 		return redirect(url_for('index'))
 	return render_template('createmypage.html')
+
+
+@app.route('/<string:page_domain>', methods=['GET'])
+def personal_page(email):
+	user = User.query.get(email)
+	if user is not None:
+		return render_template('portfolio4.html', data = user)
+	
+	else: 
+		return render_template('portfolio5.html')
+
 
 @app.route('/save_profile', methods=['POST'])
 def save_profile():
@@ -165,10 +171,10 @@ def save_profile():
 	return redirect(url_for('mypage'))
 
 
-@app.route('/portfolio4/', methods=['GET','POST'])
-def portfolio4():
-    if request.method == "GET":
-        return render_template('portfolio4.html')    
+# @app.route('/portfolio4/', methods=['GET','POST'])
+# def portfolio4():
+#     if request.method == "GET":
+#         return render_template('portfolio4.html')    
 
 @app.route('/portfolio5/', methods=['GET','POST'])
 def portfolio5():
