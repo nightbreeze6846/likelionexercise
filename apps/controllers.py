@@ -160,12 +160,11 @@ def set_domain():
 	return render_template('createmypage.html')
 
 
-@app.route('/<string:page_domain>', methods=['GET'])
-def personal_page(page_domain):
-	user = User.query.get(page_domain)
+@app.route('/<path:temp_domain>', methods=['GET'])
+def personal_page(temp_domain=''):
+	user = User.query.filter_by(page_domain=temp_domain).first()
 	if user is not None:
-		return render_template('portfolio4.html', data = user)
-	
+		return render_template('personalpage.html', data = user)
 	else: 
 		return render_template('portfolio5.html')
 
