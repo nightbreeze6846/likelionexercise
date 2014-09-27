@@ -1,4 +1,3 @@
-
 application: geekintheloftcloud
 
 version: 1
@@ -14,12 +13,32 @@ builtins:
 - remote_api: on
 
 ### handlers: set script or static files by url pattern ###
+
 handlers:
-- url: /static
-  static_dir: apps/static
+# - url: /css
+#   static_dir: static/css
+
+# - url : /images
+#   static_dir: static/images
+
+# - url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+#   mime_type: (image/jpg|image/jpeg|image/png)
+#   static_files: \1
+#   upload: (.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+# - url : /js
+#   static_dir: static/js
+
+# - url : /(.*\.(php|html))
+#   script: \1
+
+# - url: /static
+#   static_dir: apps/static
 
 - url: .*
   script: apps.app
+
+
 
 ### libraries: import third-party libraries in python 2.7 ###
 libraries:
