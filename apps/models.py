@@ -23,7 +23,7 @@ class User(db.Model):
 
     # relationships to models 
 #     video = db.relationship('Video', backref="user", lazy='dynamic')
-    # history = db.relationship('History', backref="user", lazy='dynamic')
+    history = db.relationship('History', backref="user", lazy='dynamic')
 #     music = db.relationship('Music', backref="user", lazy='dynamic')
 
 
@@ -36,12 +36,16 @@ class User(db.Model):
 # 	User_email = db.Column(db.String(255), db.ForeignKey('user.email'))
 
 
-# class History(db.Model):
-# 	id = db.Column(db.Integer, primary_key = True)
-# 	title = db.Column(db.String(255))
-# 	comments = db.Column(db.String(255))
-# 	# img
-# 	user_email = db.Column(db.String(255), db.ForeignKey('user.email'))	
+class History(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(255))
+    content = db.Column(db.String(255))
+    tag = db.Column(db.String(255))
+    starttime = db.Column(db.String(255))
+    endtime = db.Column(db.String(255))
+    
+    user_email = db.Column(db.String(255), db.ForeignKey('user.email'))	
+    comments = db.Column(db.String(255))
 
 # class Music(db.Model):
 # 	id = db.Column(db.Integer, primary_key = True)

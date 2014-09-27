@@ -5,11 +5,7 @@
   <div class="container">
 
     <div class = "col-lg-10 col-lg-offset-1">
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8b699772e352ce93694c0f78fe8cd771fc1bd8b9
     <div class="row w">
 
           <div class="porfolioh">
@@ -102,12 +98,23 @@
                <div class="col-md-9 portfolio-item">
                 
                 <a href="#"><h6>Performance History</h6></a>
+                <div class="container-item container">
+                  <a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+                  {% block historymodal %}
+                  {% include "historymodal.html" %}
+                  {% endblock %}
+                </div>
                 
-                  <p id="name1">2012년 비긴어게인 OST 제작참여</p>
-                  <p id="name1">2014년 7-14 ~ 9-14 뮤지컬 모짜르트 주연!</p>
-
-                  <a href="#">
-                  </a>
+                
+                {% if histories %}
+                  {% for item in histories %}
+                    <h2>item.title</h2>
+                      
+                  {% endfor %}
+                {% else %}
+                  <h2>경력을 추가해보세요!</h2>
+                {% endif%}
+                
               </div>
 
               <br>

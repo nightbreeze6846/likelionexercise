@@ -5,13 +5,13 @@ from werkzeug.security import generate_password_hash, \
 from sqlalchemy import desc
 from apps import app, db
 import datetime
-
+from sqlalchemy import desc,asc
 import json
 from apps.forms import JoinForm, LoginForm, HistoryAddForm
 from apps.models import (
 	 User,
 #     Video,
-    # History
+    History
 #     Music,
 #     Portfolio
 )
@@ -26,7 +26,8 @@ def index():
 		user = User.query.get(session['user_email'])
 		form = HistoryAddForm()
 		if user.page_domain != None:
-			return render_template("mypage.html",user=user, form=form)
+			histories = user.history.order_by(asc(History.id)).all()
+			return render_template('mypage.html', user=user, form =form, histories = histories)    
 		else:
 			return render_template("createmypage.html",user=user)
 
@@ -145,7 +146,8 @@ def memberout():
 def mypage():
 	user = User.query.get(session['user_email'])
 	form = HistoryAddForm()
-	return render_template('mypage.html', user=user, form =form)    
+	histories = user.history.order_by(asc(History.id)).all()
+	return render_template('mypage.html', user=user, form =form, histories = histories)    
 
 @app.route('/set_domain', methods=['POST'])
 def set_domain():
@@ -185,12 +187,21 @@ def save_profile():
 def add_history():
 	user = User.query.get(session['user_email'])
 
-	history_form = request.form
+	form = HistoryAddForm()
+	history = History(
 
-	
+		title = form.title.data,
+		user_email = session['user_email'],
+		content = form.content.data,
+		tag = form.tag.data,
+		starttime = form.starttime.data,
+		endtime = form.endtime.data
+	)
+	db.session.add(history)
 	db.session.commit()
-	return redirect(url_for('mypage'))
 
+
+	return redirect(url_for('mypage'))
 
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():

@@ -17,6 +17,8 @@ class HistoryAddForm(Form):
         [validators.data_required(u'경력을 입력하시기 바랍니다.')],
         description={'placeholder': u'무슨 일을 하셨나요?'}
     )
+    tag = SelectField(u'종류', choices=[('award', u'수상'), ('event', u'공연'), ('misc', u'기타')])
+
     starttime = DateField(
         u'언제부터',
         [validators.data_required(u'기간을 선택하시기 바랍니다.')]
