@@ -1,11 +1,7 @@
 
 application: geekintheloftcloud
 
-<<<<<<< HEAD
 version: 1
-=======
-version: 0-0-1-proto 
->>>>>>> 0443f81d82208c54a62216f5ea35c586f3d90e4d
 runtime: python27
 api_version: 1
 threadsafe: yes
