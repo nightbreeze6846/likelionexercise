@@ -32,8 +32,9 @@
     {% if session['img_key'] %}
       <img src="/profile/show" class="img-thumbnail" alt="Responsive image"></img>
     {% else %}
-      <img src="../images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+      <img src="../static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
     {% endif %}
+    </div>
     <div class="page3">
       <form action="{{ url_for('upload_photo') }}" enctype="multipart/form-data" method="post">
         <input type ="file" name="photo"></input>
@@ -42,7 +43,7 @@
       
     </div>
 
-   </div>
+  </div>
 
 
    <div class="col-md-8">

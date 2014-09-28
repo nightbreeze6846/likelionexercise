@@ -271,7 +271,7 @@ def upload_photo():
 		session['img_key'] = user.img_key
 		print user.img_key
 
-		db.session.commit()
+		# db.session.commit()
 		
 	return redirect(url_for('portfolio4'))
 
