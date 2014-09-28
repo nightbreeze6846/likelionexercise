@@ -28,6 +28,8 @@
 
   <div class="row">
 
+    <div class="col-md-11">
+
     <div class="col-md-3 profile-image">
 
     {% if session['img_key'] %}
@@ -35,20 +37,15 @@
     {% else %}
       <img src="../static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
     {% endif %}
-    </div>
-    <div class="page3">
+    
       <form action="{{ url_for('upload_photo') }}" enctype="multipart/form-data" method="post">
-        <input type ="file" name="photo"></input>
-        <button type = "submit">제출</button>
+        <input type ="file" name="photo" class="u ng"></input>
+        <button type = "submit" class="u ng">제출</button>
       </form>
       
     </div>
-  </div>
 
-
-
-
-   <div class="col-md-8">
+       <div class="col-md-7">
     <div class="col-lg-9">
       <div class="input-group">
         <span class="input-group-btn">
@@ -64,7 +61,7 @@
 <!-- 
   how to play  -->
 
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div class="col-lg-9">
       <div class="input-group">
         <span class="input-group-btn">
@@ -79,7 +76,7 @@
 <br>
 
 
-<div class="col-md-8">
+<div class="col-md-7">
   <div class="col-lg-9">
     <div class="input-group">
       <span class="input-group-btn">
@@ -100,6 +97,37 @@
 
 </div>
 
+
+<div class="col-md-7">
+  <div class="col-lg-9">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-university"></i>&nbsp;자기소개</button>
+      </span>
+      <input type="text" class="form-control">
+    </div><!-- /input-group -->
+  </div>
+
+  <label class="checkbox-inline">
+    <input type = "checkbox">
+  </input>
+</label>
+
+<br>
+<br>
+
+
+</div>
+
+
+
+  </div>
+
+
+
+
+
+
 <br>
 <br>
 
@@ -113,6 +141,8 @@
 
   <P class="nextbutton ng"><a href="{{ url_for('portfolio5') }}">Next</a></P>
 </ul>
+
+</div>
 
 </div>
 </div>

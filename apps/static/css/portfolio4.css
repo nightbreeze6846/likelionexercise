@@ -27,6 +27,7 @@
     -moz-box-shadow: 5px 5px rgba(0,0,0,0.2);
     -webkit-box-shadow: 5px 5px rgba(0,0,0,0.2);
     box-shadow: 5px 5px rgba(0,0,0,0.2);
+    
 }
 
 .finalportfolio{
@@ -41,4 +42,13 @@
 .input-group{
 
     margin-left: 50px;
+}
+
+.profile-image{
+    font-size: 10px;
+}
+
+.u{
+    font-size: 15px;
+    padding-left: 
 }
