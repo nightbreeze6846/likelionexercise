@@ -16,7 +16,8 @@ from apps.models import (
 #     Portfolio
 )
 
-	
+
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -241,6 +242,17 @@ def Contact():
     if request.method == "GET":
         return render_template('Contact.html')     
 
+@app.route('/Timeline/', methods=['GET','POST'])
+def Timeline():
+	
+    if request.method == "GET":
+        return render_template('Timeline.html')   
+
+@app.route('/MusicNews/', methods=['GET','POST'])
+def MusicNews():
+	
+    if request.method == "GET":
+        return render_template('MusicNews.html')    
 
 
 #

@@ -15,6 +15,21 @@ body {
 
 }
 
+.nextbutton{
+
+	font-size:20px;
+	font-style:italic;
+	color:#000063;
+}
+
+.infofirst{
+	margin-left: 50px;
+	padding-top: 80px;
+	font-size:20px;
+	font-style: italic;
+	color: #036564;
+}
+
 .changeinfo{
 
 	width:500px;

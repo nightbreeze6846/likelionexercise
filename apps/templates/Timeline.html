@@ -1,0 +1,137 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Contact.css') }}">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+{% extends "layout.html" %}
+
+{% block contents %}
+
+  <div class="container">
+    <div class="row">
+          <div class="page">
+             <div class="page2 ng">
+               
+            <div class="container">
+
+
+        <!-- Articles Layout - START -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://image.melon.co.kr/cm/artistcrop/images/006/81/456/681456_300.jpg" alt="">
+                        <div class="caption">
+                            <h4 class="text-center">스웨덴세탁소</h4>
+                            <span class="timelinepeople">
+                                유럽 아침의 잘 말린 빨래향이 날 것만 같은 스웨덴세탁소. 깨끗하게 세탁된 옷을 입을 때 느끼는 소소한 행복감을 우리의 음악을 들으면서도 느꼈으면, 살아가면서 더러워진 사람들의 마음을 우리의 음악으로 치유하고 깨끗하게 세탁해줄 수 있다면- 의 마음으로 노래하고 있다.
+                            </span>
+                            <br>
+
+                              <a href="#" class="btn btn-info">개인페이지이동</a>
+                            <a href="#" class="btn btn-success">구독하기</a>
+                            <p class="text-center">
+                            </p>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://image.melon.co.kr/cm/artistcrop/images/003/05/169/305169_300.jpg" alt="">
+                        <div class="caption">
+                            <h4 class="text-center">바닐라어쿠스틱</h4>
+                            <span class="timelinepeople">
+                                바닐라맨(프로듀서/보컬), 성아(보컬), 타린(기타/피아노/서브보컬) 3인조로 구성된 바닐라처럼 부드럽고 기분 좋은 어쿠스틱 음악을 추구하는 밴드. 바쁜 삶에, 지친 일상에 잠깐의 숨통을 틔워주는 따뜻한 음악을 하고 있습니다. 
+                            </span>
+                            <br>
+
+                            <a href="#" class="btn btn-info">개인페이지이동</a>
+                            <a href="#" class="btn btn-success">구독하기</a>
+
+                            <p class="text-center">
+                            </p>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://image.melon.co.kr/cm/artistcrop/images/005/65/573/565573_300.jpg" alt="">
+                        <div class="caption">
+                            <h4 class="text-center">차가운 체리</h4>
+                            <span class="timelinepeople">
+                                체리처럼 상큼하고 말랑말랑한 목소리로 노래할 것 같은 이름이지만, 이들만큼 직설적인 가사로 노래하는 뮤지션도 드물다. 김빨강(보컬)과 유현진(기타), 2009년부터 두명으로 시작했지만, 올해 이유한(드럼)을 추가해 3인 체제의 본격적인 밴드로서의 활동을 시작한다.
+                            </span>
+                            <br>
+
+                              <a href="#" class="btn btn-info">개인페이지이동</a>
+                            <a href="#" class="btn btn-success">구독하기</a>
+                            <p class="text-center">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://chungchunmusic.com/home/wp-content/uploads/2014/06/HoneyG-Con_+0840a.png" alt="">
+                        <div class="caption">
+                            <h4 class="text-center">허니지</h4>
+                            <span class="timelinepeople">
+                                권태현, 박지용, 배재현으로 구성된 슈퍼스타K4 출신 실력파 3인조 보컬 그룹이다. 슈퍼스타K4 시절부터 잘 알려진 매력적인 음색, 가창력과 더불어 멤버들이 지닌 강한 개성과 거부감 없는 친근한 이미지로 대중들의 많은 기대를 받고 있다.
+                            </span>
+                            <br>
+
+                              <a href="#" class="btn btn-info">개인페이지이동</a>
+                            <a href="#" class="btn btn-success">구독하기</a>
+                            <p class="text-center">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+
+
+        </div>
+        <!-- End container -->
+
+        <style>   
+        .thumbnail {
+            position: relative;
+            padding: 0px;
+            margin-bottom: 20px;
+        }
+
+        .thumbnail:hover {
+            background-color:#5CB85C;
+        }
+
+        .votes {
+            font-size: 47px;    
+            color:#197BB5;
+            padding:10px;
+        }
+
+        .thumbnail img {
+            width: 100%;
+        }
+        </style>
+
+        <!-- Articles Layout - END -->
+
+    </div>
+
+
+       
+    </div>
+   </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+{% endblock %}
+
+ <script>
+    $('.tooltip-demo').tooltip({
+      selector: "[data-toggle=tooltip]",
+      container: "body"
+    })
+  </script>
