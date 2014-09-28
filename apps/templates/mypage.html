@@ -8,11 +8,13 @@
 
     <div class="row w">
 
+
+
           <div class="porfolioh">
-              <div class="col-md-3 portfolio-item2">
+              <div class="col-md-3 portfolio-item">
                  
                       
-                      <img src="/static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+                      <img src="/static/images/PYT.jpg" class="img-thumbnail" alt="Responsive image"></img>
 
                   
                    <hr>
@@ -20,10 +22,12 @@
 
               </div>
 
-            
+              <div class="col-md-9">
               <div class="col-md-9 portfolio-item">
+
                 <span class="h6">Profile</span>
-                <a href="" data-target="#myModal" type="button"  data-toggle="modal">수정</a>
+                <a href="" data-target="#myModal" type="button"  data-toggle="modal" class="hn">수정</a>
+
                 
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -41,7 +45,7 @@
                               <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="inputname" value="{{ session['user_name'] }}">
+                                  <input type="text" class="form-control" name="inputname" value="{{ user.name }}">
                                 </div>
                               </div>
                               <!-- /이름입력-->
@@ -81,24 +85,30 @@
                   </div> 
                   <!-- /Modal -->
 
-                  <p id="mypage_name">name : {{ user.name }} </p>
-                  <p id="mypage_age">age : {{ user.age }} </p>
-                  <p id="mypage_profile">profile : {{ user.profile }} </p>
-                  <p id="mypage_domain">domain : {{ user.page_domain}} </p>
+                  <p id="mypage_name" class="hn">name : {{ user.name }} </p>
+                  <p id="mypage_age" class="hn">age : {{ user.age }} </p>
+                  <p id="mypage_profile" class="hn">profile : {{ user.profile }} </p>
+                  <p id="mypage_domain" class="hn">domain : {{ user.page_domain}} </p>
+
               </div>
 
 
-              <hr>
+              
+
+              <br>
+              <br>
+              <br>
+              <br>
 
 
 
 
                <div class="col-md-9 portfolio-item">
                 
-
                 <span class="h6">Performance History</span>
                 <div class="container-item container">
-                  <a href="" data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a> 
+                  <a data-target="#HistoryModal" type="button"  data-toggle="modal">히스토리 추가</a>
+
                   {% block historymodal %}
                   {% include "historymodal.html" %}
                   {% endblock %}
@@ -107,19 +117,19 @@
                 
                 {% if histories %}
                   {% for item in histories %}
-                    <div><h3>{{item.title}}</h3> 
+                    <div class="historytitle hn"><h4>{{item.title}}</h4> 
                       <button type="button" class="close">
                         <span aria-hidden="true">×</span>
                         <span class="sr-only">Close</span>
                       </button>
                     </div>
                     
-                    <p>{{item.content}}</p>
-                    <p>{{item.starttime}} 부터 {{item.endtime}}</p>
+                    <p class="hn">{{item.content}}</p>
+                    <p class="hn">{{item.starttime}} 부터 {{item.endtime}}</p>
                       
                   {% endfor %}
                 {% else %}
-                  <span class="h5">경력을 추가해보세요!</span>
+                  <h4>경력을 추가해보세요!</h4>
                 {% endif%}
                 
               </div>
@@ -127,13 +137,18 @@
               <br>
               <br>
               <br> 
+              <br>
 
                <div class="col-md-9 portfolio-item">
                 
+
                 <span class="h6">Music</span>
+                <br>
+
                 
-                  <a href="#">박준모 - 지금이순간</a>
-                  <a href="#">박준모 - memory</a>
+                  <span class="glyphicon glyphicon-music"></span><a href="https://soundcloud.com/wildwan79/02-le-temps-des-cathedrales" class="hn">박은태-대성당들의 시대</a>
+                  <br>
+                  <span class="glyphicon glyphicon-music"></span><a href="https://soundcloud.com/werock-3/0werock" class="hn">박은태-겟세마네</a>
 
                   <a href="#">
                   </a>
@@ -143,28 +158,22 @@
               <br>
               <br>
 
+
              
                 <div class="col-md-9 portfolio-item">
                   
-                  <span class="h6">Video</span>
+                 <span class="h6">Video</span>
 
 
                   <div class="row">
                     <div class="col-xs-4 col-sm-3">
-                      <img src="http://i.ytimg.com/vi/dmG_1LwtlLI/0.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
+                      <iframe width="420" height="315" src="//www.youtube.com/embed/XhiSAGJ_Fkw" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="col-xs-4 col-sm-3">
-                      <img src="http://www.tvian.com/TVianUpload/TVian/MBCinfo/images/info/201011191548151_P.jpg" class="img-thumbnail2" alt="Responsive image"><p>국가스텐 - 거울</p></img>
-                    </div>
+                   
                   </div>
                 </div> 
 
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              
+              </div>
           </div>
       </div>
     </div><!-- <col-lg-10> -->

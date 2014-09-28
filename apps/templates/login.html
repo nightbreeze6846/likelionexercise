@@ -3,24 +3,31 @@
 {% block contents %}
 <div class="container">
 
+
+	<div "col-md-3">
 	<form action=" {{ url_for('login') }}" method="post">
 
 
 	<div id="contents" class="firstsign">
-		<div class="input-group">
+		<div class="input-group ng">
 			<span class="input-group-addon" >Email</span>
 			<input type="text" class="form-control" id="email_input" name="email" placeholder="User email">
 		</div>
 		<br>
-		<div class="input-group">
+		<div class="input-group ng">
 			<span class="input-group-addon">Password</span>
 			<input type="password" class="form-control" name="pw" placeholder="Password">
 		</div>
 		<br>
-		<button type="submit">로그인</button>
-		<a href="" data-target="#JoinModal" type="button"  data-toggle="modal">아직도 회원이 아니신가요?</a>
+		<button type="submit" class="ng">Login</button>
+		<a href="" data-target="#JoinModal" type="button"  data-toggle="modal" class="form1 ng">아직도 회원이 아니신가요?</a>
 	</div>
 	</form>
+
+
+	</div>
+
+	<!-- <div class="logo"><img src="/static/images/logoweb.jpg" alt="Responsive image"></img></div> -->
 
 
 		
@@ -63,6 +70,9 @@ margin-left: 0px; margin-top: 5px;">Google+ 계정으로 회원가입하기</but
 
 			</div>
 		</div>
+
+
+
 		
 
 		<!-- /프로필-->

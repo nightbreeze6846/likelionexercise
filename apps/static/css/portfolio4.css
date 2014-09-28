@@ -1,6 +1,10 @@
+
 .page2 {
     font-size: 30px;
     color:black;
+    font-family:맑은 고딕;
+    letter-spacing: 0.2px;
+    padding:10px;
 
 }
 
@@ -16,7 +20,8 @@
 }
 
 .l{
-	background-color: #ffffff;
+    margin-left: 100px;
+	background-color: rgba(224,224,224,0.3);
     border: 1px solid #dddddd;
     -moz-box-shadow: 5px 5px rgba(0,0,0,0.2);
     -webkit-box-shadow: 5px 5px rgba(0,0,0,0.2);

@@ -167,7 +167,14 @@ def set_domain():
 def personal_page(temp_domain=''):
 	user = User.query.filter_by(page_domain=temp_domain).first()
 	if user is not None:
-		return render_template('personalpage.html', data = user)
+		form = HistoryAddForm()
+		if user.email == session['user_email']:
+			histories = user.history.all()
+			return render_template('mypage.html', user = user, form= form, histories = histories)
+		else:
+			histories = user.history.all()
+			return render_template('personalpage.html', data = user, histories = histories)
+
 	else: 
 		return render_template('portfolio5.html')
 
@@ -229,7 +236,13 @@ def portfolio7():
 @app.route('/portfolio8/', methods=['GET','POST'])
 def portfolio8():
     if request.method == "GET":
-        return render_template('portfolio8.html')    
+        return render_template('portfolio8.html')   
+
+@app.route('/Contact/', methods=['GET','POST'])
+def Contact():
+	
+    if request.method == "GET":
+        return render_template('Contact.html')     
 
 
 class Photo(gdb.Model):
