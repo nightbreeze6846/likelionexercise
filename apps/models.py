@@ -18,6 +18,7 @@ class User(db.Model):
     profile = db.Column(db.String(1024))
     genre = db.Column(db.String(255))
 
+    img_key = db.Column(db.String(255))
     join_date = db.Column(db.DateTime(), default = db.func.now())
 
 

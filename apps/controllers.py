@@ -4,9 +4,10 @@ from werkzeug.security import generate_password_hash, \
 	 check_password_hash
 from sqlalchemy import desc
 from apps import app, db
+from google.appengine.ext import db as gdb
 import datetime
 from sqlalchemy import desc,asc
-import json
+
 from apps.forms import JoinForm, LoginForm, HistoryAddForm
 from apps.models import (
 	 User,
@@ -91,6 +92,8 @@ def login():
 		session.permanent = True
 		session['user_email'] = user.email
 		session['user_name'] = user.name
+		session['img_key'] = user.img_key
+
 		flash(u'로그인 하셨습니다.', 'success')
 		return redirect(url_for('index'))
 	
@@ -229,7 +232,43 @@ def portfolio8():
         return render_template('portfolio8.html')    
 
 
+class Photo(gdb.Model):
+	photo = gdb.BlobProperty()
 
+def allowed_file(filename):
+	ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+	return '.' in filename and \
+	filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+@app.route('/profile/upload_photo', methods=['POST'])
+def upload_photo():
+	photo = request.files['photo']
+	if photo and allowed_file(photo.filename):
+		filestream = photo.read()
+
+		upload_data = Photo()
+		upload_data.photo = gdb.Blob(filestream)
+		upload_data.put()
+
+		user = User.query.get(session['user_email'])
+		
+		user.img_key = str(upload_data.key())
+
+		session['img_key'] = user.img_key
+		print user.img_key
+
+		db.session.commit()
+		
+	return redirect(url_for('portfolio4'))
+
+@app.route('/profile/show')
+def show_profilephoto():
+
+	print "session : "+ session['img_key']
+	uploaded_data = gdb.get(session['img_key'])
+
+	return app.response_class(uploaded_data.photo)
 #
 # @error Handlers
 #

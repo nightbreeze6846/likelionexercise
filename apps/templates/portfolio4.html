@@ -28,9 +28,18 @@
   <div class="row">
 
     <div class="col-md-3 profile-image">
-
-     <img src="http://www.scatterbrain.co.kr/wp-content/uploads/2010/03/114.jpg" class="img-thumbnail" alt="Responsive image"></img>
-     <div class="page3"><a>수정</a> <a>삭제</a></div>
+    {% if session['img_key'] %}
+      <img src="/profile/show" class="img-thumbnail" alt="Responsive image"></img>
+    {% else %}
+      <img src="../images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+    {% endif %}
+    <div class="page3">
+      <form action="{{ url_for('upload_photo') }}" enctype="multipart/form-data" method="post">
+        <input type ="file" name="photo"></input>
+        <button type = "submit">제출</button>
+      </form>
+      
+    </div>
 
    </div>
 
