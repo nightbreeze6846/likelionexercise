@@ -21,63 +21,40 @@
 
           </div>
              
+          {% if histories %}
+            {% for item in histories %}
+              <div class="historytitle hn"><h4>{{item.title}}</h4> 
+                <button type="button" class="close">
+                  <span aria-hidden="true">×</span>
+                  <span class="sr-only">Close</span>
+                </button>
+              </div>
+              
+              <p class="hn">{{item.content}}</p>
+              <p class="hn">{{item.starttime}} 부터 {{item.endtime}}</p>
+                
+            {% endfor %}
+          {% else %}
+            <h4>경력을 추가해보세요!</h4>
+          {% endif%}
 
           <div>
-
-            <!-- 경력 입력 인풋 -->
-            <form action="" method="post">
-              <div class="col-md-4 input-group">
-                <input type="text" class="form-control">
-                
-                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">submit</button>
-                 
-                </span>
-              </div><!-- /input-group --> 
-            </form>
-
-            
-          </div>
-
-          <div>
-
-            <!-- 경력 입력 인풋 -->
-            <form action="" method="post">
-              <div class="col-md-4 input-group">
-                <input type="text" class="form-control">
-                
-                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">submit</button>
-                 
-                </span>
-              </div><!-- /input-group --> 
-            </form>
-
-            
-          </div>
-
-          <div>
-
-            <!-- 경력 입력 인풋 -->
-            <form action="" method="post">
-              <div class="col-md-4 input-group">
-                <input type="text" class="form-control">
-                
-                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">submit</button>
-                 
-                </span>
-              </div><!-- /input-group --> 
-            </form>
-
-            
-          </div>
+  
+          <!-- 경력 입력 인풋 -->
+          <form action="" method="post">
+            <div class="col-md-4 input-group">
+              <input type="text" class="form-control" placeholder ="경력을 입력해보세요">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">submit</button>
+              </span>
 
 
-
+            </div><!-- /input-group --> 
+          </form>
         
-
-          </div> 
+            
+          </div>
+          
 
           <ul class="pager">
           
