@@ -30,12 +30,22 @@
 
     <div class="col-md-3 profile-image">
 
-      <img src="/static/images/PYT.jpg" class="img-thumbnail" alt="Responsive image"></img>
+    {% if session['img_key'] %}
+      <img src="/profile/show" class="img-thumbnail" alt="Responsive image"></img>
+    {% else %}
+      <img src="../static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+    {% endif %}
+    </div>
+    <div class="page3">
+      <form action="{{ url_for('upload_photo') }}" enctype="multipart/form-data" method="post">
+        <input type ="file" name="photo"></input>
+        <button type = "submit">제출</button>
+      </form>
+      
+    </div>
+  </div>
 
 
-     <div class="page3"><a>수정</a> <a>삭제</a></div>
-
-   </div>
 
 
    <div class="col-md-8">
