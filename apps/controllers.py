@@ -216,13 +216,14 @@ def add_history():
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():
 	
-    if request.method == "GET":
-        return render_template('portfolio4.html')    
+	if request.method == "GET":
+		return render_template('portfolio4.html')    
 
 @app.route('/portfolio5/', methods=['GET','POST'])
 def portfolio5():
-    if request.method == "GET":
-        return render_template('portfolio5.html')    
+	histories = User.query.get(session['user_email']).history.all()
+	if request.method == "GET":
+		return render_template('portfolio5.html', histories = histories)    
 
 @app.route('/portfolio6/', methods=['GET','POST'])
 def portfolio6():
