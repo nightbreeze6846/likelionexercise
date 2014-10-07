@@ -90,7 +90,6 @@ def login():
 		return render_template("loginagain.html")
 		# flash(u'비밀번호가 일치하지 않습니다.', 'danger')
 	else:
-		session.permanent = True
 		session['user_email'] = user.email
 		session['user_name'] = user.name
 		session['img_key'] = user.img_key
@@ -122,7 +121,6 @@ def changeinfo():
 			user.password = generate_password_hash(newpw)
 
 			db.session.commit()
-			session.permanent = True
 			session['user_name'] = user.name
 			return redirect(url_for('mypage'))
 
@@ -169,11 +167,10 @@ def personal_page(temp_domain=''):
 	user = User.query.filter_by(page_domain=temp_domain).first()
 	if user is not None:
 		form = HistoryAddForm()
-		if user.email == session['user_email']:
-			histories = user.history.all()
+		histories = user.history.all()
+		if user.email == session:
 			return render_template('mypage.html', user = user, form= form, histories = histories)
 		else:
-			histories = user.history.all()
 			return render_template('personalpage.html', data = user, histories = histories)
 
 	else: 

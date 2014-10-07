@@ -13,8 +13,13 @@
           <div class="porfolioh">
               <div class="col-md-3 portfolio-item">
                  
-                      
-                      <img src="/static/images/PYT.jpg" class="img-thumbnail" alt="Responsive image"></img>
+                      {% if user.img_key %}
+
+                        <img src="{{user.img_key}}" class="img-thumbnail" alt="Responsive image"></img>
+
+                      {% else %}
+                        <img src="/static/images/questionmark.jpg" class="img-thumbnail" alt="Responsive image"></img>
+                        {% endif %}
 
                   
                    <hr>
@@ -88,7 +93,7 @@
                   <p id="mypage_name" class="hn">name : {{ user.name }} </p>
                   <p id="mypage_age" class="hn">age : {{ user.age }} </p>
                   <p id="mypage_profile" class="hn">profile : {{ user.profile }} </p>
-                  <p id="mypage_domain" class="hn">domain : {{ user.page_domain}} </p>
+                  <p id="mypage_domain" class="hn">domain : www.musicdoc.com/{{ user.page_domain}} </p>
 
               </div>
 
@@ -117,7 +122,7 @@
                 
                 {% if histories %}
                   {% for item in histories %}
-                    <div class="historytitle hn"><h4>{{item.title}}</h4> 
+                    <div class="historytitle hn"><h4>{{ item.title }}</h4> 
                       <button type="button" class="close">
                         <span aria-hidden="true">×</span>
                         <span class="sr-only">Close</span>
