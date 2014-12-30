@@ -4,7 +4,6 @@ from werkzeug.security import generate_password_hash, \
 	 check_password_hash
 from sqlalchemy import desc
 from apps import app, db
-from google.appengine.ext import db as gdb
 import datetime
 from sqlalchemy import desc,asc
 
@@ -18,12 +17,8 @@ from apps.models import (
 )
 
 
-
-
-
 @app.route('/', methods=['GET', 'POST'])
-def index():
-	
+def index():	
 	if 'user_email' in session :
 		user = User.query.get(session['user_email'])
 		form = HistoryAddForm()
@@ -47,14 +42,9 @@ def check_email():
 		return jsonify(emailCheckPassed="True")
 
 
-
 @app.route('/user/join/', methods=['GET','POST'])
 def user_join():
-
-
-	form = JoinForm()
-	
-	
+	form = JoinForm()	
 	if form.validate_on_submit():
 		user = User(
 			email = form.email.data,
@@ -77,8 +67,7 @@ def user_join():
 		return render_template("login.html", form = form, joinModalOn='True')
 
 @app.route('/login', methods=['POST'])
-def login():
-	
+def login():	
 	email = request.form['email']
 	pwd = request.form['pw']
 	user = User.query.get(email)
@@ -123,25 +112,20 @@ def changeinfo():
 			db.session.commit()
 			session['user_name'] = user.name
 			return redirect(url_for('mypage'))
-
 		else:
 			return render_template("changeinfo.html")
 
 	return render_template("changeinfo.html", user=user)
 
 @app.route('/memberout', methods=['GET', 'POST'])
-def memberout():
-	
+def memberout():	
 	if request.method == "POST":
 		user = User.query.get(session['user_email'])
 		pwconfirm = request.form
-
-		if check_password_hash(user.password, pwconfirm['pw']):
-			
+		if check_password_hash(user.password, pwconfirm['pw']):			
 			db.session.delete(user)
 			db.session.commit()
 			return redirect(url_for('logout'))
-
 	return render_template("memberout.html")
 
 @app.route('/mypage/', methods=['GET'])
@@ -161,6 +145,16 @@ def set_domain():
 		return redirect(url_for('index'))
 	return render_template('createmypage.html')
 
+@app.route('/set_genre/', methods=['GET','POST'])
+def set_genre():
+	a=request.args.get(genre1, type=text)
+	return jsonify(result1=a) 
+
+@app.route('/set_profile/', methods=['GET','POST'])
+def set_profile():	
+	if request.method == "GET":
+		return render_template('index.html')    
+	return render_template('set_profile.html')    
 
 @app.route('/<path:temp_domain>', methods=['GET'])
 def personal_page(temp_domain=''):
@@ -172,14 +166,12 @@ def personal_page(temp_domain=''):
 			return render_template('mypage.html', user = user, form= form, histories = histories)
 		else:
 			return render_template('personalpage.html', data = user, histories = histories)
-
 	else: 
 		return render_template('portfolio5.html')
 
 
 @app.route('/save_profile', methods=['POST'])
-def save_profile():
-	
+def save_profile():	
 	
 	user = User.query.get(session['user_email'])
 
@@ -207,20 +199,17 @@ def add_history():
 	db.session.add(history)
 	db.session.commit()
 
-
 	return redirect(url_for('mypage'))
 
 @app.route('/portfolio4/', methods=['GET','POST'])
 def portfolio4():
-	
-	if request.method == "GET":
-		return render_template('portfolio4.html')    
+	return render_template('portfoliotest.html')    
 
-@app.route('/portfolio5/', methods=['GET','POST'])
-def portfolio5():
-	histories = User.query.get(session['user_email']).history.all()
-	if request.method == "GET":
-		return render_template('portfolio5.html', histories = histories)    
+# @app.route('/portfolio5/', methods=['GET','POST'])
+# def set_genre():
+# 	histories = User.query.get(session['user_email']).history.all()
+# 	if request.method == "GET":
+# 		return render_template('portfolio5.html', histories = histories)    
 
 @app.route('/portfolio6/', methods=['GET','POST'])
 def portfolio6():
@@ -255,8 +244,6 @@ def MusicNews():
     if request.method == "GET":
         return render_template('MusicNews.html')    
 
-class Photo(gdb.Model):
-	photo = gdb.BlobProperty()
 
 def allowed_file(filename):
 	ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -264,34 +251,8 @@ def allowed_file(filename):
 	return '.' in filename and \
 	filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-@app.route('/profile/upload_photo', methods=['POST'])
-def upload_photo():
-	photo = request.files['photo']
-	if photo and allowed_file(photo.filename):
-		filestream = photo.read()
 
-		upload_data = Photo()
-		upload_data.photo = gdb.Blob(filestream)
-		upload_data.put()
 
-		user = User.query.get(session['user_email'])
-		
-		user.img_key = str(upload_data.key())
-
-		session['img_key'] = user.img_key
-		print user.img_key
-
-		# db.session.commit()
-		
-	return redirect(url_for('portfolio4'))
-
-@app.route('/profile/show')
-def show_profilephoto():
-
-	print "session : "+ session['img_key']
-	uploaded_data = gdb.get(session['img_key'])
-
-	return app.response_class(uploaded_data.photo)
 #
 # @error Handlers
 #

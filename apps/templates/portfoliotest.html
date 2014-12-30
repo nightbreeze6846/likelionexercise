@@ -1,0 +1,261 @@
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio4.css') }}">
+
+{% extends "layout.html" %}
+
+{% block contents %}
+
+<div id="page-content-wrapper">
+    <h1 class="maketitle">Choose your Genre</h1>
+    <div class="container">
+        <div class="row">
+            <div class="l">
+                <div class="page">
+                    <div class="page2 ng">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Genre 
+                               <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li id="classictext" class="genre1"><a href="#">Classic</a></li>
+                                <li id="edmtext" class="genre1"><a href="#">Electronic</a></li>
+                                <li id="engtext" class="genre1"><a href="#">Engineer</a></li>
+                                <li id="jazztext" class="genre1"><a href="#">Jazz</a></li>
+                                <li id="koreantext" class="genre1"><a href="#">Korean Traditional</a></li>
+                                <li id="musicaltext" class="genre1"><a href="#">Musical</a></li>
+                                <li id="poptext" class="genre1"><a href="#">Pop</a></li>
+                                <li id="rocktext" class="genre1"><a href="#">Rock</a></li>
+                                <li id="relitext" class="genre1"><a href="#">Religious</a></li>
+                                <li id="wmtext" class="genre1"><a href="#">World Music</a></li>
+                                <li id="cctext" class="genre1"><a href="#">Critic&Columnist</a></li>
+                                <li id="comptext" class="genre1"><a href="#">Composer</a></li>
+                                <li class="divider"></li>
+                                <li id="wygtext" class="genre1"><a href="#">Write your Genre</a></li>
+                            </ul>
+
+                            <div class="btn-group" id="classicdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Classic Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">String</a></li>
+                                    <li class="dtltext"><a href="#">Brass</a></li>
+                                    <li class="dtltext"><a href="#">Woodwind</a></li>
+                                    <li class="dtltext"><a href="#">Percussion</a></li>
+                                    <li class="dtltext"><a href="#">Piano</a></li>
+                                    <li class="dtltext"><a href="#">Vocal</a></li>
+                                    <li class="dtltext"><a href="#">Ensemble</a></li>
+                                    <li class="dtltext"><a href="#">Conductor</a></li>
+                                    <li class="dtltext"><a href="#">Performing Arts Manager(Classic)</a></li>
+                                    <li class="dtltext"><a href="#">Opera(Coach, Director...)</a></li>
+                                    <li class="dtltext"><a href="#">Music History</a></li>
+                                    <li class="dtltext"><a href="#">Musicology</a></li>
+                                    <li class="dtltext"><a href="#">New Age(Classic)</a></li>
+                                    <li class="dtltext"><a href="#">A Cappella(Classic)</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="edmdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    EDM Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Ambient</a></li>
+                                    <li class="dtltext"><a href="#">Breakbeat</a></li>                                
+                                    <li class="dtltext"><a href="#">Disco</a></li>
+                                    <li class="dtltext"><a href="#">Downtempo</a></li>
+                                    <li class="dtltext"><a href="#">Dubstep</a></li>
+                                    <li class="dtltext"><a href="#">Electro</a></li>
+                                    <li class="dtltext"><a href="#">House</a></li>
+                                    <li class="dtltext"><a href="#">Industrial</a></li>
+                                    <li class="dtltext"><a href="#">Techno</a></li>
+                                    <li class="dtltext"><a href="#">Trance</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="engdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Engineer Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Advertisement Music</a></li>
+                                    <li class="dtltext"><a href="#">Audio</a></li>
+                                    <li class="dtltext"><a href="#">Hall&Concert</a></li>
+                                    <li class="dtltext"><a href="#">Movie&Drama Music</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="jazzdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Jazz Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">                                
+                                    <li class="dtltext"><a href="#">Bigband&Swing</a></li>
+                                    <li class="dtltext"><a href="#">Bop</a></li>
+                                    <li class="dtltext"><a href="#">Bosa Nova</a></li>
+                                    <li class="dtltext"><a href="#">Classic Jazz</a></li>
+                                    <li class="dtltext"><a href="#">Cool</a></li>
+                                    <li class="dtltext"><a href="#">Free</a></li>
+                                    <li class="dtltext"><a href="#">Fusion</a></li>
+                                    <li class="dtltext"><a href="#">New Age(Jazz)</a></li>
+                                    <li class="dtltext"><a href="#">Ragtime</a></li>
+                                    <li class="dtltext"><a href="#">World Jazz</a></li>                                
+                                    <li class="dtltext"><a href="#">Soul Jazz&Groove</a></li>                        
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="koreandtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Korean Treditional Music Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">가야금</a></li>
+                                    <li class="dtltext"><a href="#">거문고</a></li>
+                                    <li class="dtltext"><a href="#">대금</a></li>
+                                    <li class="dtltext"><a href="#">피리</a></li>
+                                    <li class="dtltext"><a href="#">해금</a></li>
+                                    <li class="dtltext"><a href="#">아쟁</a></li>
+                                    <li class="dtltext"><a href="#">타악</a></li>
+                                    <li class="dtltext"><a href="#">성악</a></li>                          
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="musicaldtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Musical Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Director</a></li>
+                                    <li class="dtltext"><a href="#">Dancing Director(Musical)</a></li>
+                                    <li class="dtltext"><a href="#">Singer(Musical)</a></li>
+                                    <li class="dtltext"><a href="#">Musical Costume</a></li>
+                                    <li class="dtltext"><a href="#">Dance(Musical)</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="popdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Pop Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Acustic</a></li>
+                                    <li class="dtltext"><a href="#">A Cappella(Pop)</a></li>
+                                    <li class="dtltext"><a href="#">Ballad</a></li>
+                                    <li class="dtltext"><a href="#">Country</a></li>
+                                    <li class="dtltext"><a href="#">Dance</a></li>
+                                    <li class="dtltext"><a href="#">Dancing Director(Pop)</a></li>
+                                    <li class="dtltext"><a href="#">Folk</a></li>
+                                    <li class="dtltext"><a href="#">Hiphop</a></li>
+                                    <li class="dtltext"><a href="#">R&B</a></li>   
+                                    <li class="dtltext"><a href="#">Producer</a></li>                                
+                                    <li class="dtltext"><a href="#">Vocal Trainer</a></li>
+                                    <li class="dtltext"><a href="#">New Age(Pop)</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="rockdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Rock Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">                                
+                                    <li class="dtltext"><a href="#">Alternative</a></li>
+                                    <li class="dtltext"><a href="#">Blues</a></li>
+                                    <li class="dtltext"><a href="#">Hardcore</a></li>
+                                    <li class="dtltext"><a href="#">Heavy Metal</a></li>
+                                    <li class="dtltext"><a href="#">Metal</a></li>
+                                    <li class="dtltext"><a href="#">Rock</a></li>
+                                    <li class="dtltext"><a href="#">Rock'n'roll</a></li>              
+                                    <li class="dtltext"><a href="#">Progressive</a></li>
+                                    <li class="dtltext"><a href="#">Punk</a></li>
+                                    <li class="dtltext"><a href="#">Psychedelic</a></li>   
+                                    <li class="divider"></li>                             
+                                    <li class="wy"><a href="#">Write yourself</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="relidtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Religious Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Contemporary Christian Music</a></li>
+                                    <li class="dtltext"><a href="#">Buddhist Music</a></li>
+                                    <li class="divider"></li>
+                                    <li class="wy"><a href="#">Write yourself</a></li>                                
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="wmdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    World Music Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">                                
+                                    <li class="dtltext"><a href="#">Raggae</a></li>
+                                    <li class="dtltext"><a href="#">Latin</a></li>
+                                    <li class="dtltext"><a href="#">제 3세계</a></li>
+                                    <li class="divider"></li>                             
+                                    <li class="wy"><a href="#">Write yourself</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="ccdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Critic&Columnist Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">                          
+                                    <li class="wy"><a href="#">Write yourself</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group" id="compdtl">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Composer Details <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dtltext"><a href="#">Pop</a></li>
+                                    <li class="dtltext"><a href="#">Classic</a></li>
+                                    <li class="divider"></li>                             
+                                    <li class="wy"><a href="#">Write yourself</a></li>
+                                </ul>
+                            </div>
+                            <input type="text" id="wgenre" class="btn btn-default" placeholder="Write your Genre">
+
+                            <input type="text" id="wself" class="btn btn-default" placeholder="Write yourself">
+
+                            <div class="row">  
+                                <div class="input-group" id="wdetail">
+                                  <input type="text" class="form-control" id="wdeinput" placeholder="Add your last details">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Add</button>
+                                </span>
+                                <div class="well well-sm" id="genredtbox">세부 장르는 검색에도 활용됩니다.</div>
+                            </div><!-- /input-group -->
+                            
+                    </div><!-- /.row -->
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="savebutton" class="ng">Save and Next</button>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+        {% endblock %}

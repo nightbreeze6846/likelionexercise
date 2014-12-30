@@ -117,3 +117,121 @@ body {
 	text-align: center;
 }
 
+.maketitle{
+	margin-left: 110px;
+}
+
+/*포트폴리오 장르설정 드롭박스*/
+#classicdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#edmdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#engdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#jazzdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#koreandtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#musicaldtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#popdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#rockdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#relidtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#wmdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#ccdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#compdtl{
+	display: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+#wgenre{
+	display: none;
+	margin-left: 10px;
+	margin-right:10px;
+	text-align: left;
+
+}
+
+#wself{
+	display: none;
+	margin-right:10px;
+	text-align: left;
+
+}
+#wdetail{
+	display: none;
+	margin-right:10px;
+	text-align: left;
+
+}
+
+#wdeinput{
+	width: 160px;
+	float: left;
+}
+
+#savebutton{
+	float: right;
+	margin-top: 10px;
+	display: none;
+}
+
+#genredtbox {
+	display: none;
+	margin-left: 205px;
+	margin-top: 6px;
+	width: 215px;
+	font-size: 6px;
+	color: #A4A4A4;
+}
